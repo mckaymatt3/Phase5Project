@@ -8,12 +8,12 @@ class RoomsController < ApplicationController
     # @users = User.all_except(current_user)
     #     @room = Room.new
 
-    render json: @rooms, status: :ok
+    render json: RoomSerializer.new(@rooms), status: :ok
   end
 
   def show
     @room = Room.find(params[:id])
-    render json: @room, status: :ok 
+    render json: RoomSerializer.new(@room), status: :ok 
   end
 
   # create room below
@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
     @new_room = Room.create(room_params)
     @user = User.find(params[:user_id]);
     if @new_room
-        render json: @new_room, status: :created
+        render json: RoomSerializer.new(@new_room), status: :created
     end
     render json: @new_room.errors.full_messages, status: :unprocessable_entity
 end

@@ -27,6 +27,6 @@ Rails.application.routes.draw do
   # to: 'fallback#index',
   # constraints: ->(req) { !req.xhr? && req.format.html? }
 
-  
+  mount ActionCable.server => '/cable'
 
 end
