@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-    
-    skip_before_action :authorize, only:[:index, :show, :create]
+    # skip_before_action :authorize, only:[:index, :show, :create]
   
   
     # GET /users
@@ -56,6 +55,6 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params.permit(:id, :username, :name, :email)
+    params.permit(:username, :name, :email, :password)
   end
 end

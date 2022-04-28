@@ -19,6 +19,13 @@ room4 = Room.create(name: "Indie")
 
 
 puts "🏕 Seeding users..."
-# user1 = User.create!(email:"john@doe.com", password: 'password', password_confirmation: 'password')
-# user2 = User.create!(email:"miami@heat.com", password: 'abc123', password_confirmation: 'abc123')
+user1 = User.create!(name: "John Doe", username: "Johnny D", email:"john@doe.com", password: 'abc123')
+user2 = User.create!(name: "Miami Heat", username: "Miami", email: "miami@heat.com", password: 'abc123')
 
+puts "🏕 Seeding messages..."
+Message.create(user_id: user1.id, room_id: room1.id, body: 'Check out this new ish')
+Message.create(user_id: user2.id, room_id: room2.id, body: 'Lets get it')
+Message.create(user_id: user2.id, room_id: room1.id, body: 'Ayoooo')
+Message.create(user_id: user1.id, room_id: room3.id, body: '🎉')
+
+puts "The end..."
