@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Redirect, Route } from "react-router";
 import '../App.css';
 
-function Login() {
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [login, setLogin] = useState("")
+function Login({username, setUsername, password, setPassword, login, setLogin, user, setUser, setIsLoading}) {
+    // const [username, setUsername] = useState("")
+    // const [password, setPassword] = useState("")
+    // const [login, setLogin] = useState("")
     const [errors, setErrors] = useState([])
     
     function handleSubmit(e){
@@ -24,19 +24,22 @@ function Login() {
         .then(response => response.json())
         .then(jsonData => {
             console.log("Data here:", jsonData);
-            // authRoute();   
+            // setUser(jsonData)
+            setIsLoading(false)  
         })
         .catch((error) => {
             console.error("Error:", error)
         })
     }
 
-    function authRoute (setLogin) {
-        if (setLogin) 
-            return <Redirect to="/home" />;
-        else 
-            (console.log("please log in"))
-    }
+    useEffect(() => {
+        // auto-login
+        fetch("/me").then((r) => {
+          if (r.ok) {
+            r.json().then((user) => setUser(user));
+          }
+        });
+      }, []);
     
     
     return ( 

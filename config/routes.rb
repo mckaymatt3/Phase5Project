@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get "/me", to: "users#show"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

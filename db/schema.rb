@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_28_134357) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.string "status", default: "offline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

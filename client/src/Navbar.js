@@ -14,16 +14,19 @@ function NavBar() {
       <div className="flexbox-nav">
         <div className="navbar-links">
             <div className="navbar-link-spacing">
-                <NavLink to="/home">Home</NavLink>
+                <NavLink exact to="/">Home</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <NavLink exact to="/">Login</NavLink>
+                <NavLink to="/login">Login</NavLink>
             </div>
             <div className="navbar-link-spacing">
                 <NavLink to="/signup">Sign Up</NavLink>
             </div>
             <div className="navbar-link-spacing">
                 <NavLink to="/count">Count</NavLink>
+            </div>
+            <div className="navbar-link-spacing">
+                <NavLink to="/musicplayer">MusicPlayer</NavLink>
             </div>
             
         </div>
