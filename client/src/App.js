@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Home.js"
-import MusicPlayer from "./musiccomponents/MusicLogin.js";
+import MusicLogin from "./musiccomponents/MusicLogin.js";
 import Login from "./user/Login";
 
 function App() {
@@ -39,8 +39,8 @@ function App() {
           <Route exact path="/">
             <Home user={user}/>
           </Route>
-          <Route path="/musicplayer">
-            <MusicPlayer user={user}/>
+          <Route path="/musiclogin">
+            <MusicLogin user={user} setUser={setUser}/>
           </Route>
         </Switch>
       </div>

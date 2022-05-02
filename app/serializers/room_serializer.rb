@@ -1,5 +1,5 @@
 class RoomSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name, :is_private
-  has_many :messages
+  attributes :name, :is_private, :messages
+  # has_many :messages
 end

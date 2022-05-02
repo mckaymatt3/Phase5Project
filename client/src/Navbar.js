@@ -26,7 +26,7 @@ function NavBar() {
                 <NavLink to="/count">Count</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <NavLink to="/musicplayer">MusicPlayer</NavLink>
+                <NavLink to="/musiclogin">Music Login</NavLink>
             </div>
             
         </div>
