@@ -6,35 +6,40 @@ import ChatMessages from "./ChatMessages";
 function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, setCurrentRoomMessages}) {
     const [newMessage, setNewMessage] = useState("");
     
-    const handleSubmit = () => {
-        const message = {
-          content: newMessage,
-        //   user_id: currentUser.id,
-        //   room_id: parseInt(currentRoom.room.id),
+    const handleSubmit = (event) => {
+      event.preventDefault();  
+      const message = {
+          body: newMessage,
+          user_id: parseInt(user.data.id),
+          room_id: parseInt(currentRoom.id),
         //   sender_name: currentUser.username
         };
         console.log("message", message);
-        fetch("http://localhost:3000/messages", {
+        fetch('/messages', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify({ message: message }),
+          body: JSON.stringify({           
+            body: newMessage,
+            user_id: parseInt(user.data.id),
+            room_id: parseInt(currentRoom.id), 
+          }),
         })
-          .then((resp) => resp.json())
+          .then((response) => response.json())
           .then((result) => {
-            console.log("done done")
+            alert("done done");
+            // update messages on screen - with state
+
             // start();
           });
     };
 
     function handleChange(event) {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setNewMessage(event.target.value);
     }
-
-    // console.log("new", newMessage)
 
     //if we want to add in sound below and fire off sound in the handle submit above
     // let recieveSound = new Audio("/whatsAppSound.mp3");
@@ -45,10 +50,21 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
 
 
     // console.log(currentRoomMessages)
-
+    function checkTheseMessages() {
+      const myMessages = currentRoomMessages.map(function(message) {
+        // console.log("my messages: ", message)
+        return <ChatMessages key={message.id} message={message.body} />
+    }) 
+      if (myMessages) {
+        return myMessages
+      }
+      else {
+        <p>Hop in one of these chats bruv...</p>
+      } 
+    }
     // map messages
     const myMessages = currentRoomMessages.map(function(message) {
-        console.log("my messages: ", message)
+        // console.log("my messages: ", message)
         return <ChatMessages key={message.id} message={message.body} />
     })
 
@@ -57,12 +73,13 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
 
     function checkThisChat () {
         if (currentRoom)
-            return <h1 className="chat-header-name">{currentRoom.attributes.name}</h1>
+            return <h1 className="chat-header-name">{currentRoom[0].attributes.name}</h1>
         else {
             return <h1 classname="intro-message"> You got that proper chat... </h1>
         }
     }
 
+  // console.log(currentRoom[0].attributes.name)
 
   return (
     <div className="chat-area">
@@ -70,7 +87,8 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
             {checkThisChat()}
         </div>
         <div className="message-container">
-            {myMessages}
+            {/* {myMessages} */}
+            {checkTheseMessages()}
         </div>
         <form className="add-chat-form" onSubmit={handleSubmit}>
             <label className="chat-label"> Chat: 

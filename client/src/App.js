@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Home from "./Home.js"
 import MusicLogin from "./musiccomponents/MusicLogin.js";
 import Login from "./user/Login";
 
-function App() {
+function App({cableApp}) {
   const [count, setCount] = useState(0);
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [user, setUser] = useState("")
   const [login, setLogin] = useState("")
   const [isLoading, setIsLoading ] = useState(true)
+  const [allRooms, setAllRooms] = useState([]);
+  const [currentRoom, setCurrentRoom] = useState()
+  const [currentRoomMessages, setCurrentRoomMessages] = useState([])
 
   useEffect(() => {
     fetch("/hello")
@@ -18,9 +22,37 @@ function App() {
       .then((data) => setCount(data.count));
   }, []);
 
+  
+  useEffect (() => {
+      // fetch('/users/{:id}')
+      fetch('/rooms')
+      .then(resp => resp.json())
+      .then(roomsData => {
+        // console.log("Rooms brought in from backend:", roomsData.data)
+          setAllRooms(roomsData.data);
+          // setCurrentRoom(roomsData.data[0]);
+          // setCurrentRoomMessages(roomsData.data[0].attributes.messages)
+      })
+  }, []);
+
+  function showRoom (showThisRoom) {
+    // create const to check find and not include twice
+    // console.log("show this room", showThisRoom)
+    const checkMyRooms = allRooms.find(function(room){
+      return room.id === showThisRoom.id
+    })
+    // console.log("check my rooms", checkMyRooms)
+    if (checkMyRooms) {
+    return setCurrentRoom([showThisRoom])
+    }
+  }  
+  
+  console.log("current room in state:", currentRoom)
+  console.log("current room messages:", currentRoomMessages )  
+
   if(!user) {
     // console.log("not logged in")
-    console.log("login:", login)
+    // console.log("login:", login)
     return <Login setIsLoading={setIsLoading} user={user} setUser={setUser} password={password} setPassword={setPassword} username={username} setUsername={setUsername} login={login} setLogin={setLogin} />
   }
 
@@ -37,8 +69,23 @@ function App() {
             <h1>Page Count: {count}</h1>
           </Route>
           <Route exact path="/">
-            <Home user={user}/>
+            <Home 
+              user={user} 
+              setUser={setUser} 
+              allRooms={allRooms} 
+              setAllRooms={setAllRooms} 
+              currentRoom={currentRoom} 
+              setCurrentRoom={setCurrentRoom} 
+              currentRoomMessages={currentRoomMessages} 
+              setCurrentRoomMessages={setCurrentRoomMessages}
+              showRoom={showRoom} />
           </Route>
+          {/* need to put route below into rooms */}
+          {/* <Route
+            exact
+            path="/rooms/:id"
+            element={currentUser ? <ChatScreen cableApp={cableApp} /> : navigate("/")}
+          /> */}
           <Route path="/musiclogin">
             <MusicLogin user={user} setUser={setUser}/>
           </Route>

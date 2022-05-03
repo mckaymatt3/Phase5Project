@@ -7,7 +7,8 @@ class MessagesController < ApplicationController
 
     def create
         message = Message.new(message_params)
-        room = Room.find(message_params["room_id"])
+        room = Room.find(params[:room_id])
+        # binding.pry
         if message.save
             puts "successfully saved a message!"
             RoomsChannel.broadcast_to(room, {
@@ -22,7 +23,7 @@ class MessagesController < ApplicationController
     private
 
     def message_params
-        params.require(:body).permit(:body, :user_id, :room_id)
+        params.permit(:body, :user_id, :room_id)
     end
 
 end

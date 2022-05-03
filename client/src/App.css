@@ -333,33 +333,62 @@
 
 /* inputted by Matt below */
 
+:root{
+  --bg1: #eaac8b;
+  --bg2: #b56576;
+}
+
 .overall-login-div{
   margin-top: 10vh;
   margin-bottom: 10vh;
+  place-items: center;
+}
+
+.welcome-local-login{
+  color: white;
+  text-align: center;
 }
 
 .login-div{
-  width: 35%;
-  background-color: grey;
+  width: 55vh;
+  height: 55vh;
+  /* background-image: linear-gradient(to right, var(--bg1) 50%, var(--bg2) 50%);  */
+  border-radius: 50%;
   margin: auto;
   text-align: center;
+  place-items: center;
+  left      : 50%;
+  top       : 50%;
+  position  : absolute;
+  transform : translate(-50%, -50%);
+  border-style: outset;
 }
 
 .login-form{
   display: grid;
   grid-template-rows: 5vh 3vh 5vh 3vh;
-  width: 80%;
+  width: 40vh;
+  height:40vh;
   margin: auto;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
+  border-radius: 50%;
+  place-items: center;
+  left      : 50%;
+  top       : 50%;
+  position  : absolute;
+  transform : translate(-50%, -50%);
+  color: white;
 }
 
 .email-label{
-  padding-top: 2vh; 
+  padding-top: 4vh;
+  padding-bottom: 4vh; 
   text-align: left;
 }
 
 .password-label{
-  padding-top: 2vh;
+  padding-top: 4vh;
+  padding-bottom: 4vh; 
   text-align: left;
 }
 
@@ -413,9 +442,9 @@
   background-color: red;
 }
 
-.navbar-overall-div{
+/* .navbar-overall-div{
   
-}
+} */
 
 .navbar-link-spacing{
   padding-bottom: 1vh;

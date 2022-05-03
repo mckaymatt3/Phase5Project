@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect, Route } from "react-router";
-import '../App.css';
+import './Login.css'
+import '../App.css'
 
 function Login({username, setUsername, password, setPassword, login, setLogin, user, setUser, setIsLoading}) {
     // const [username, setUsername] = useState("")
@@ -44,12 +45,13 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
     
     return ( 
         <div className="overall-login-div">
-            <div className="login-div"> Welcome to Local.
+            <h1 className="welcome-local-login">Welcome to Local.</h1>
+            <div className="login-div"> 
                 <form className="login-form" onSubmit={handleSubmit}>
                     <label className="email-label"> Username: </label>
-                        <input type="text" value={ username } name="username" onChange={(e) => setUsername(e.target.value)} />
+                        <input className="input-bar" type="text" value={ username } name="username" onChange={(e) => setUsername(e.target.value)} />
                     <label className="password-label"> Password: </label>
-                        <input type="text" value={ password } name="password" onChange={(e) => setPassword(e.target.value)} />
+                        <input className="input-bar" type="password" value={ password } name="password" onChange={(e) => setPassword(e.target.value)} />
                     <div className="login-button-div">
                         <input type="submit" value="Login" onClick={() => setLogin(true)} />
                     </div>
