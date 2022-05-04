@@ -75,7 +75,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
         if (currentRoom)
             return <h1 className="chat-header-name">{currentRoom[0].attributes.name}</h1>
         else {
-            return <h1 classname="intro-message"> You got that proper chat... </h1>
+            return <h1 className="intro-message"> You got that proper chat... </h1>
         }
     }
 

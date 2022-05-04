@@ -3,13 +3,13 @@ import NavBar from './Navbar';
 import Chat from './chatcomponents/Chat';
 import ChatRooms from './chatcomponents/ChatRooms';
 import HouseLogo from './HouseLogo.png'
+import MusicSearch from './musiccomponents/MusicSearch';
 
 function Home({
     user, setUser, allRooms, setAllRooms, currentRoom, setCurrentRoom,  
     currentRoomMessages, setCurrentRoomMessages, showRoom}) {
+
     
-
-
 
     return ( 
         <div className="homepage">
@@ -35,7 +35,7 @@ function Home({
                 </div>
             </div>
             <div className="song-streaming">
-                Song Streaming
+                <MusicSearch />
             </div>
             <div className="chat-area">
                 <Chat 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css"
 import { useNavigate } from "react-router-dom";
 import Home from "./Home.js"
 import MusicLogin from "./musiccomponents/MusicLogin.js";
@@ -15,6 +16,9 @@ function App({cableApp}) {
   const [allRooms, setAllRooms] = useState([]);
   const [currentRoom, setCurrentRoom] = useState()
   const [currentRoomMessages, setCurrentRoomMessages] = useState([])
+  const [accessToken, setAccessToken] = useState("");
+  const [tokenType, setTokenType] = useState("");  
+  const [expiresIn, setExpiresIn] = useState(""); 
 
   useEffect(() => {
     fetch("/hello")
@@ -47,8 +51,15 @@ function App({cableApp}) {
     }
   }  
   
-  console.log("current room in state:", currentRoom)
-  console.log("current room messages:", currentRoomMessages )  
+  // console logs in APP
+
+  // console.log("current room in state:", currentRoom)
+  // console.log("current room messages:", currentRoomMessages )  
+  // console.log("Access Token App:", accessToken)
+  // console.log("Token Type App:", tokenType)
+  // console.log("Expires in App:", expiresIn)
+  console.log("user:", user)
+  console.log("local storage access:", localStorage)
 
   if(!user) {
     // console.log("not logged in")
@@ -56,7 +67,7 @@ function App({cableApp}) {
     return <Login setIsLoading={setIsLoading} user={user} setUser={setUser} password={password} setPassword={setPassword} username={username} setUsername={setUsername} login={login} setLogin={setLogin} />
   }
 
-  console.log("user:", user)
+
 
   return (
     // <BrowserRouter>
@@ -78,7 +89,14 @@ function App({cableApp}) {
               setCurrentRoom={setCurrentRoom} 
               currentRoomMessages={currentRoomMessages} 
               setCurrentRoomMessages={setCurrentRoomMessages}
-              showRoom={showRoom} />
+              showRoom={showRoom} 
+              accessToken={accessToken} 
+              setAccessToken={setAccessToken} 
+              expiresIn={expiresIn} 
+              setExpiresIn={setExpiresIn} 
+              tokenType={tokenType} 
+              setTokenType={setTokenType}
+              />
           </Route>
           {/* need to put route below into rooms */}
           {/* <Route
@@ -87,7 +105,7 @@ function App({cableApp}) {
             element={currentUser ? <ChatScreen cableApp={cableApp} /> : navigate("/")}
           /> */}
           <Route path="/musiclogin">
-            <MusicLogin user={user} setUser={setUser}/>
+            <MusicLogin user={user} setUser={setUser} accessToken={accessToken} setAccessToken={setAccessToken} expiresIn={expiresIn} setExpiresIn={setExpiresIn} tokenType={tokenType} setTokenType={setTokenType}/>
           </Route>
         </Switch>
       </div>
