@@ -6,12 +6,14 @@ import ChatMessages from "./ChatMessages";
 function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, setCurrentRoomMessages}) {
     const [newMessage, setNewMessage] = useState("");
     
+  // console.log("current room id", currentRoom[0].id)
+
     const handleSubmit = (event) => {
       event.preventDefault();  
       const message = {
           body: newMessage,
           user_id: parseInt(user.data.id),
-          room_id: parseInt(currentRoom.id),
+          room_id: parseInt(currentRoom[0].id),
         //   sender_name: currentUser.username
         };
         console.log("message", message);
@@ -24,7 +26,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
           body: JSON.stringify({           
             body: newMessage,
             user_id: parseInt(user.data.id),
-            room_id: parseInt(currentRoom.id), 
+            room_id: parseInt(currentRoom[0].id), 
           }),
         })
           .then((response) => response.json())
