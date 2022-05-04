@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavBar from './Navbar';
 import Chat from './chatcomponents/Chat';
 import ChatRooms from './chatcomponents/ChatRooms';
+import HouseLogo from './HouseLogo.png'
 
 function Home({
     user, setUser, allRooms, setAllRooms, currentRoom, setCurrentRoom,  
@@ -16,7 +17,22 @@ function Home({
                 Header 
             </div>
             <div className="nav-bar">
+                <div className="logo-container">
+                    <img src={HouseLogo} alt="logo" className="logo"></img>
+                </div>
+
                 <NavBar />
+
+                <div className="rooms-area">
+                ChatRooms:
+                <ChatRooms 
+                    allRooms={allRooms} 
+                    setAllRooms={setAllRooms} 
+                    setCurrentRoom={setCurrentRoom}
+                    setCurrentRoomMessages={setCurrentRoomMessages}
+                    showRoom={showRoom}
+                />
+                </div>
             </div>
             <div className="song-streaming">
                 Song Streaming
@@ -32,7 +48,7 @@ function Home({
                     showRoom={showRoom}
                 />
             </div>
-            <div className="rooms-area">
+            {/* <div className="rooms-area">
                 ChatRooms:
                 <ChatRooms 
                     allRooms={allRooms} 
@@ -41,7 +57,7 @@ function Home({
                     setCurrentRoomMessages={setCurrentRoomMessages}
                     showRoom={showRoom}
                 />
-            </div>
+            </div> */}
             {/* can maybe create a hidden area that shows other items like song statistics or something  */}
         </div>
      );

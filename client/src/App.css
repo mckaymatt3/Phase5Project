@@ -400,7 +400,7 @@
   background-color: antiquewhite;
   display: grid;
   grid-template-columns: 10vw 20vw 20vw 20vw 30vw;
-  grid-template-rows: 12vh 10vh 30vh 20vh 20vh 8vh;
+  grid-template-rows: 10vh 6vh 6vh 20vh 20vh 38vh;
 }
 
 
@@ -412,44 +412,68 @@
   background-color:blue;
 }
 
-.nav-bar {
-  grid-row-start: 2;
-  grid-row-end: 7;
-  background-color: aquamarine;
-}
+
 
 .song-streaming {
   grid-row-start: 2;
-  grid-row-end: 3;
+  grid-row-end: 4;
   grid-column-start: 2;
   grid-column-end: 7;
   background-color: yellow;
 }
 
 .chat-area {
-  grid-row-start: 3;
-  grid-row-end: 6;
+  grid-row-start: 4;
+  grid-row-end: 7;
   grid-column-start: 2;
   grid-column-end: 7;
   background-color: burlywood;
 }
 
-.rooms-area {
-  grid-row-start: 6;
+
+
+.nav-bar {
+  grid-row-start: 2;
   grid-row-end: 7;
-  grid-column-start: 2;
-  grid-column-end: 7;
-  background-color: red;
+  background-color: aquamarine;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-/* .navbar-overall-div{
-  
-} */
+.logo-container {
+  /* width: 100%; */
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 14vh;
+  align-self: center;
+  /* width: 8vw; */
+}
 
 .navbar-link-spacing{
   padding-bottom: 1vh;
   padding-top: 1vh;
 }
+
+.navbar-overall-div{
+  padding-bottom: 4vh;
+}
+
+.rooms-area {
+  /* grid-row-start: 6;
+  grid-row-end: 7;
+  grid-column-start: 2;
+  grid-column-end: 7; */
+  background-color: red;
+  overflow-y: scroll; 
+  overflow-x: auto;
+}
+
+
 
 
 
