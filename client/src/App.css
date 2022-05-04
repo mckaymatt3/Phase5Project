@@ -416,14 +416,14 @@
 
 .song-streaming {
   grid-row-start: 2;
-  grid-row-end: 4;
+  grid-row-end: 5;
   grid-column-start: 2;
   grid-column-end: 7;
   background-color: yellow;
 }
 
 .chat-area {
-  grid-row-start: 4;
+  grid-row-start: 5;
   grid-row-end: 7;
   grid-column-start: 2;
   grid-column-end: 7;
@@ -472,6 +472,34 @@
   overflow-y: scroll; 
   overflow-x: auto;
 }
+
+.music-search-div {
+
+  background-color: lightgray;
+  overflow-y: scroll; 
+  /* overflow-x: scroll; */
+}
+
+.search-result-div {
+  display: flex;
+  align-items: center;
+  margin: 2px;
+}
+
+.search-result-pic {
+  height: 64px;
+  width: 64px;
+}
+
+.search-result-title {
+  margin-left: 3px;
+}
+
+.search-result-title-artist {
+  margin-left: 3px;
+}
+
+
 
 
 

@@ -1,27 +1,18 @@
 import React, { useEffect } from 'react';
+import SpotifyPlayer from "react-spotify-web-playback"
 
-// const webPlayer = window.onSpotifyWebPlaybackSDKReady = () => {
-//     const token = '[My access token]';
-//     const player = new Spotify.Player({
-//       name: 'Web Playback SDK Quick Start Player',
-//       getOAuthToken: cb => { cb(token); },
-//       volume: 0.5
-//     });
+function MusicPlayer({accessToken, trackUri}) {
 
-function MusicPlayer() {
+    console.log("access token in player", accessToken)
 
+    if (!accessToken) return null
     return ( 
-        <div className="login_container">
-            {/* <html>
-            <head>
-                <title>Spotify Web Playback SDK Quick Start</title>
-            </head>
-            <body>
-                <h1>Spotify Web Playback SDK Quick Start</h1>
-                <script src="https://sdk.scdn.co/spotify-player.js"></script>
-            </body>
-            </html> */}
-        </div> );
+        <SpotifyPlayer 
+            token={accessToken}
+            showSaveIcon
+            uris={trackUri ? [trackUri] : []}
+        /> 
+    );
 }
 
 export default MusicPlayer;
