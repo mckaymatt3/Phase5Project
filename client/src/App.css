@@ -336,17 +336,37 @@
 :root{
   --bg1: #eaac8b;
   --bg2: #b56576;
+  --bg3: #6D597a;
+  --bg4: rgb(190,228,222);
+  --bg5: #FFFAF1;
+  --componentSize: 179px;
+  --maskSize: 50px;
+  --speed: 1s;
+  --borderOffset: 8px;
 }
 
 .overall-login-div{
   margin-top: 10vh;
   margin-bottom: 10vh;
   place-items: center;
+  /* justify-content: center; */
 }
 
 .welcome-local-login{
   color: white;
   text-align: center;
+  opacity: .8;
+  /* background-color: coral; */
+  background-image: linear-gradient(to right, var(--bg3) 06%, var(--bg1) 60%, var(--bg3) 90%);
+}
+
+.redirect-to-spotify{
+  text-align: center;
+  background: transparent;
+  position: absolute;
+  bottom: 10vh;
+  align-content: center;
+  margin-left: 45%;
 }
 
 .login-div{
@@ -400,7 +420,7 @@
   background-color: antiquewhite;
   display: grid;
   grid-template-columns: 10vw 20vw 20vw 20vw 30vw;
-  grid-template-rows: 10vh 6vh 6vh 20vh 20vh 38vh;
+  grid-template-rows: 10vh 6vh 6vh 10vh 30vh 38vh;
 }
 
 
@@ -409,17 +429,53 @@
   grid-row-end: 2;
   grid-column-start: 1;
   grid-column-end: 7;
-  background-color:blue;
+  background-color: #FFFAF1;
+  /* background-color: #ff9898; */
+  /* background-color: rgb(228,228,249); */
+  border-style: outset;
+  border-color: var(--bg2)
+  /* border-color: #ff9898 */
 }
 
-
+.welcome-page-header {
+  text-align: center;
+  margin-top: 2.5vh;
+  text-transform: uppercase;
+   background-image: linear-gradient(
+     -1deg,
+     #ff1361 24%,
+     black 29%,
+     #4dbbc7 70%,
+     #fff800 100%
+   );
+   background-size: auto auto;
+   background-clip: border-box;
+   background-size: 10% auto;
+   color: #fff;
+   background-clip: text;
+   text-fill-color: transparent;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   animation: textclip 10s linear infinite;
+   display: center;
+       /* font-size: 190px; */
+ }
+ 
+ @keyframes textclip {
+   to {
+     background-position: 50% left;
+   }
+ }
+ 
 
 .song-streaming {
   grid-row-start: 2;
   grid-row-end: 5;
   grid-column-start: 2;
   grid-column-end: 7;
-  background-color: yellow;
+  background-color: #FFFAF1;
+  border-style: outset;
+  border-color: var(--bg2)
 }
 
 .chat-area {
@@ -427,25 +483,63 @@
   grid-row-end: 7;
   grid-column-start: 2;
   grid-column-end: 7;
-  background-color: burlywood;
+  background-color: #FFFAF1;
+  border-style: outset;
+  border-color: var(--bg2)
 }
 
+.intro-message{
+  text-align: center;
+}
+
+.chat-header-name{
+  text-align: center;
+}
+
+.add-chat-form{
+  text-align: center;
+}
 
 
 .nav-bar {
   grid-row-start: 2;
   grid-row-end: 7;
-  background-color: aquamarine;
+  background-color: #FFFAF1;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
+  border-style: outset;
+  border-color: var(--bg2)
 }
+
+.navbar-link-spacing > a {
+  text-decoration: none;
+  color: var(--bg4);
+  text-emphasis: filled sesame #555;
+  font-weight: bold
+}
+
+.navbar-header{
+  animation: glow 2s ease-in-out infinite alternate;
+  text-transform: uppercase;
+  padding-bottom: 2vh;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px #ff1361;
+  }
+  to {
+    text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
+}}
+
 
 .logo-container {
   /* width: 100%; */
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  padding-top: 2vh;
 }
 
 .logo {
@@ -468,10 +562,23 @@
   grid-row-end: 7;
   grid-column-start: 2;
   grid-column-end: 7; */
-  background-color: red;
+  /* background-color: #afe4de; */
+  background-color: var(--bg5);
   overflow-y: scroll; 
+  border-style: outset;
+  border-color: var(--bg4)
   /* overflow-x: scroll; */
 }
+
+.room-header{
+  
+  color: black
+}
+
+.room-name-header{
+  color: black;
+}
+
 
 .music-search-div {
 

@@ -17,9 +17,9 @@ function ChatRoomsCard({room, showRoom, setCurrentRoomMessages}) {
   }
 
     return (
-    <h5 className="room-name-header" onClick={handleRoom}>
+    <h6 className="room-name-header" onClick={handleRoom}>
        {room.attributes.name}
-    </h5>
+    </h6>
   )
 }
 

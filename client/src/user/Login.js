@@ -27,6 +27,8 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
             console.log("Data here:", jsonData);
             // setUser(jsonData)
             setIsLoading(false)  
+            username("")
+            password("")
         })
         .catch((error) => {
             console.error("Error:", error)
@@ -41,7 +43,11 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
           }
         });
       }, []);
-    
+
+      function isUserLoggedIn () {
+          if (user)
+            return <a href='http://localhost:4000/'>Continue to Home</a>
+      }    
     
     return ( 
         <div className="overall-login-div">
@@ -56,6 +62,9 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
                         <input type="submit" value="Login" onClick={() => setLogin(true)} />
                     </div>
                 </form>
+            </div>
+            <div className="redirect-to-spotify">
+                    {isUserLoggedIn()}
             </div>
         </div>
      );

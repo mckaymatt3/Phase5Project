@@ -17,17 +17,20 @@ function NavBar() {
                 <NavLink exact to="/">Home</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <NavLink to="/login">Login</NavLink>
-            </div>
-            <div className="navbar-link-spacing">
                 <NavLink to="/signup">Sign Up</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <NavLink to="/count">Count</NavLink>
+                <NavLink to="/login">Login</NavLink>
             </div>
             <div className="navbar-link-spacing">
                 <NavLink to="/musiclogin">Music Login</NavLink>
             </div>
+            <div className="navbar-link-spacing">
+                <a href="">LogOut</a>
+            </div>
+            {/* <div className="navbar-link-spacing">
+                <NavLink to="/count">Count</NavLink>
+            </div> */}
             
         </div>
       </div>

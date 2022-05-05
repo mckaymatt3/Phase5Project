@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Home from "./Home.js"
 import MusicLogin from "./musiccomponents/MusicLogin.js";
 import Login from "./user/Login";
+import Chat from "./chatcomponents/Chat.js";
 
 function App({cableApp}) {
   const [count, setCount] = useState(0);
@@ -19,6 +20,8 @@ function App({cableApp}) {
   const [accessToken, setAccessToken] = useState("");
   const [tokenType, setTokenType] = useState("");  
   const [expiresIn, setExpiresIn] = useState(""); 
+
+  // let navigate = useNavigate();
 
   useEffect(() => {
     fetch("/hello")
@@ -59,7 +62,7 @@ function App({cableApp}) {
   // console.log("Token Type App:", tokenType)
   // console.log("Expires in App:", expiresIn)
   console.log("user:", user)
-  console.log("local storage access:", localStorage)
+  // console.log("local storage access:", localStorage)
 
   if(!user) {
     // console.log("not logged in")
@@ -67,7 +70,9 @@ function App({cableApp}) {
     return <Login setIsLoading={setIsLoading} user={user} setUser={setUser} password={password} setPassword={setPassword} username={username} setUsername={setUsername} login={login} setLogin={setLogin} />
   }
 
-
+  // const openChat = (room) => {
+  //   navigate(`/rooms/${room.id}`);
+  // };
 
   return (
     // <BrowserRouter>
@@ -96,14 +101,15 @@ function App({cableApp}) {
               setExpiresIn={setExpiresIn} 
               tokenType={tokenType} 
               setTokenType={setTokenType}
+              cableApp={cableApp}
               />
           </Route>
           {/* need to put route below into rooms */}
-          {/* <Route
+          <Route
             exact
             path="/rooms/:id"
-            element={currentUser ? <ChatScreen cableApp={cableApp} /> : navigate("/")}
-          /> */}
+            // element={user ? <ChatScreen cableApp={cableApp} /> : navigate("/")}
+          />
           <Route path="/musiclogin">
             <MusicLogin user={user} setUser={setUser} accessToken={accessToken} setAccessToken={setAccessToken} expiresIn={expiresIn} setExpiresIn={setExpiresIn} tokenType={tokenType} setTokenType={setTokenType}/>
           </Route>

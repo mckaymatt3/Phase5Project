@@ -4,7 +4,7 @@ import { setRoomValue } from "../redux/room";
 import { useLocation } from "react-router-dom";
 
 
-function ChatWebSocket({ cableApp }) {
+function RoomWebSocket({ cableApp }) {
 
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.value);
@@ -13,23 +13,11 @@ function ChatWebSocket({ cableApp }) {
     fetch(`http://localhost:3000/rooms/${id}`)
       .then((response) => response.json())
       .then((result) => {
-        dispatch(
-          setRoomValue({
-            room: result.data,
-            users: result.data.attributes.users,
-            messages: result.data.attributes.messages,
-          })
-        );
+        dispatch(setRoomValue(result.data));
       });
   };
   const updateApp = (newRoom) => {
-    dispatch(
-      setRoomValue({
-        room: newRoom.room.data,
-        users: newRoom.users,
-        messages: newRoom.messages,
-      })
-    );
+    dispatch(setRoomValue(newRoom.room.data));
   };
   useEffect(() => {
     console.log(location);
@@ -37,8 +25,7 @@ function ChatWebSocket({ cableApp }) {
     cableApp.room = cableApp.cable.subscriptions.create(
       {
         channel: "RoomsChannel",
-        room: window.location.href.match(/\d+$/)[0],
-        user: currentUser.id,
+        room: window.location.href.match(/\d+$/)[0]
       },
       {
         received: (updatedRoom) => {
@@ -53,4 +40,4 @@ function ChatWebSocket({ cableApp }) {
   return <div></div>;
 }
 
-export default ChatWebSocket;
+export default RoomWebSocket;

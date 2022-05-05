@@ -14,7 +14,9 @@ function Home({
     return ( 
         <div className="homepage">
             <div className="header"> 
-                Header 
+                <div className="welcome-page-header-div">
+                    <h2 className="welcome-page-header"> ♯ Local. But HiDef. ♯ </h2> 
+                </div>
             </div>
             <div className="nav-bar">
                 <div className="logo-container">
@@ -24,7 +26,7 @@ function Home({
                 <NavBar />
 
                 <div className="rooms-area">
-                ChatRooms:
+                <h5 className="room-header">ChatRooms:</h5>
                 <ChatRooms 
                     allRooms={allRooms} 
                     setAllRooms={setAllRooms} 
