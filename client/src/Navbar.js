@@ -8,7 +8,7 @@ function NavBar() {
     <nav className="navbar-overall-div">
 
       <div className="navbar-header">
-        <h1> Local. </h1>
+        <h1 className="navbar-header-name"> Aux </h1>
       </div>
 
       <div className="flexbox-nav">

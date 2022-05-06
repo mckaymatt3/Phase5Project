@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "../App.css"
 
 const CLIENT_ID="aa7545d077a24e4b9ac7a11c57e35045"
 const CLIENT_SECRET="05f735ece4ec4ecfb1a9310dd973adde"
@@ -80,9 +81,13 @@ function MusicLogin ({
 
     return ( 
         <div className="login_container">
-            <h1>Spotify Connect</h1>
-            <button onClick={handleLogin}>Login to Spotify</button>
-            <a href="http://localhost:4000/">Get back to the homepage</a>
+            <h1 className="spotify-connect-header">Spotify Connect</h1>
+            <div className="spotify-spacing">
+              <button onClick={handleLogin}>Login to Spotify</button>
+            </div>
+            <div className="spotify-spacing">
+              <a href="http://localhost:4000/">Get back to the homepage</a>
+            </div>
         </div> );
 }
 

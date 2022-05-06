@@ -29,6 +29,7 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
             setIsLoading(false)  
             username("")
             password("")
+            alert("Logged in!")
         })
         .catch((error) => {
             console.error("Error:", error)
@@ -51,7 +52,7 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
     
     return ( 
         <div className="overall-login-div">
-            <h1 className="welcome-local-login">Welcome to Local.</h1>
+            <h1 className="welcome-local-login">Welcome to Aux.</h1>
             <div className="login-div"> 
                 <form className="login-form" onSubmit={handleSubmit}>
                     <label className="email-label"> Username: </label>
