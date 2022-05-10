@@ -9,6 +9,7 @@ function Home({
     user, setUser, allRooms, setAllRooms, currentRoom, setCurrentRoom,  
     currentRoomMessages, setCurrentRoomMessages, showRoom, cableApp}) {
 
+    const [title, setTitle] = useState("Welcome to Aux chat");
     
 
     return ( 
@@ -34,6 +35,8 @@ function Home({
                     setCurrentRoom={setCurrentRoom}
                     setCurrentRoomMessages={setCurrentRoomMessages}
                     showRoom={showRoom}
+                    title={title}
+                    setTitle={setTitle}
                 />
                 </div>
             </div>
@@ -50,6 +53,8 @@ function Home({
                     setCurrentRoomMessages={setCurrentRoomMessages}
                     showRoom={showRoom}
                     cableApp={cableApp}
+                    title={title}
+                    setTitle={setTitle}
                 />
             </div>
             {/* <div className="rooms-area">

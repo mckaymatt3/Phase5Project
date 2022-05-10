@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect, Route } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { setRoomValue } from "../redux/room";
+import { setValue } from "../redux/user";
 import './Login.css'
 import '../App.css'
 
@@ -8,6 +11,10 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
     // const [password, setPassword] = useState("")
     // const [login, setLogin] = useState("")
     const [errors, setErrors] = useState([])
+
+    const dispatch = useDispatch();
+    const currentUser = useSelector((state) => state.user.value);
+    // console.log("currentUser", currentUser)
     
     function handleSubmit(e){
         e.preventDefault()
@@ -40,7 +47,10 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
         // auto-login
         fetch("/me").then((r) => {
           if (r.ok) {
-            r.json().then((user) => setUser(user));
+            r.json().then((user) => {
+                setUser(user);
+                dispatch(setValue(user))
+            });
           }
         });
       }, []);
