@@ -47,7 +47,10 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
 
       function isUserLoggedIn () {
           if (user)
-            return <a href='http://localhost:4000/'>Continue to Home</a>
+            return <a href='http://localhost:4000/'> Logged In! Continue to Home</a>
+        else {
+            return <a href='http://localhost:4000/signup'>New to Aux? Sign up by clicking here.</a>
+        }
       }    
     
     return ( 

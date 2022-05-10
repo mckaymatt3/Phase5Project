@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from 'react';
 // import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom"
 
 function NavBar() {
 
+  function handleLogoutClick(){
+    fetch("/logout", { method: "DELETE"}).then((r) => {
+        if (r.ok) {
+            // console.log(r)
+            // need to add in global state here to the logout
+            setCurrentUser(null);
+            // routes you back to home
+        }
+    });
+}
+
+
+
   return (
     <nav className="navbar-overall-div">
 
       <div className="navbar-header">
-        <h1 className="navbar-header-name"> Aux </h1>
+        <h1 className="navbar-header-name"> Aux. </h1>
       </div>
 
       <div className="flexbox-nav">
@@ -23,15 +36,14 @@ function NavBar() {
                 <NavLink to="/login">Login</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <NavLink to="/musiclogin">Music Login</NavLink>
+                <NavLink to="/musiclogin">Spotify Login</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <a href="">LogOut</a>
+                <a href="">Log Out</a>
             </div>
             {/* <div className="navbar-link-spacing">
                 <NavLink to="/count">Count</NavLink>
             </div> */}
-            
         </div>
       </div>
     </nav>

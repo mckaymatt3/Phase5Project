@@ -16,7 +16,7 @@ function Home({
             <div className="header"> 
                 <div className="welcome-page-header-div">
                     {/* <h2 className="welcome-page-header"> ♯ Local. But HiDef. ♯ </h2>  */}
-                    <h1 className="welcome-page-header"> PASS THE AUX. </h1> 
+                    <h1 className="welcome-page-header"> PASS  THE  AUX. </h1> 
                 </div>
             </div>
             <div className="nav-bar">

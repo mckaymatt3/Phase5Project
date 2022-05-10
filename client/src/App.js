@@ -113,6 +113,9 @@ function App({cableApp}) {
           <Route path="/musiclogin">
             <MusicLogin user={user} setUser={setUser} accessToken={accessToken} setAccessToken={setAccessToken} expiresIn={expiresIn} setExpiresIn={setExpiresIn} tokenType={tokenType} setTokenType={setTokenType}/>
           </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>
         </Switch>
       </div>
     // </BrowserRouter>

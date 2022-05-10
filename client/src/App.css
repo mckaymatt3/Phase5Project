@@ -370,6 +370,13 @@
   margin-left: 45%;
 }
 
+.redirect-to-spotify > a {
+  text-decoration: none;
+  color: var(--bg5);
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .login_container{
   text-align: center;
   /* border-style: outset; */
@@ -402,6 +409,7 @@ body{
   height: 55vh;
   /* background-image: linear-gradient(to right, var(--bg1) 50%, var(--bg2) 50%);  */
   background-image: url(https://cdn3.vectorstock.com/i/1000x1000/98/12/vinyl-record-background-vector-14589812.jpg);
+  /* background-position: left center; */
   border-radius: 50%;
   margin: auto;
   text-align: center;
@@ -466,6 +474,7 @@ body{
   grid-column-end: 7;
   /* background-color: #FFFAF1; */
   background-image: url(https://venture10.com/wp-content/uploads/2012/12/Opera-Background-Speaker1.jpg);
+  /* background-position: center center; */
   /* background-color: #ff9898; */
   /* background-color: rgb(228,228,249); */
   border-style: outset;
@@ -563,7 +572,7 @@ body{
   text-transform: uppercase;
   padding-bottom: 2vh;
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
 }
 
 @keyframes glow {
@@ -578,7 +587,7 @@ body{
 .logo-container {
   /* width: 100%; */
   display: flex;
-  justify-content: left;
+  justify-content: center;
   padding-top: 2vh;
 }
 
