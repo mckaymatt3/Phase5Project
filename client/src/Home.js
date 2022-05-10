@@ -7,7 +7,7 @@ import MusicSearch from './musiccomponents/MusicSearch';
 
 function Home({
     user, setUser, allRooms, setAllRooms, currentRoom, setCurrentRoom,  
-    currentRoomMessages, setCurrentRoomMessages, showRoom}) {
+    currentRoomMessages, setCurrentRoomMessages, showRoom, cableApp}) {
 
     
 
@@ -49,6 +49,7 @@ function Home({
                     currentRoomMessages={currentRoomMessages} 
                     setCurrentRoomMessages={setCurrentRoomMessages}
                     showRoom={showRoom}
+                    cableApp={cableApp}
                 />
             </div>
             {/* <div className="rooms-area">

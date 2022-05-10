@@ -1,10 +1,30 @@
 import { React, useEffect, useState, useRef } from "react";
 import InputEmoji from "react-input-emoji";
 import ChatMessages from "./ChatMessages";
+import ChatWebSocket from "../ChatWebSocket";
+import { useSelector, useDispatch } from "react-redux";
+import { setValue } from "../redux/user";
+import { setRoomValue } from "../redux/room";
 
 
-function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, setCurrentRoomMessages}) {
+function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, setCurrentRoomMessages, cableApp}) {
     const [newMessage, setNewMessage] = useState("");
+
+    const dispatch = useDispatch();
+    const currentRoomGlobal = useSelector((state => state.room.value))
+    console.log("current room global :", currentRoomGlobal)
+
+    useEffect(() => {
+    //   console.log(currentRoom[0].id)
+      const id = currentRoom[0].id
+      fetch(`/rooms/${id}`)
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("rooms data", result)
+          dispatch(setRoomValue(result.data));
+        })
+      }, []);
+  
     
   // console.log("current room id", currentRoom[0].id)
 
@@ -98,6 +118,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
             </label>
             <input className="submit-button" type="submit" />
         </form>
+      {/* <ChatWebSocket cableApp={cableApp} /> */}
     </div>
 
   )

@@ -6,7 +6,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from "./serviceWorker"
 import actionCable from "actioncable";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
 const CableApp = {};
+
 
 CableApp.cable = actionCable.createConsumer("ws://localhost:3000/cable");
 // This readys a consumer (think of this as a browser window) that will connect against /cable on your backend server by default. 
@@ -16,9 +20,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
   // <React.StrictMode>
-  <BrowserRouter>
-    <App cableApp={CableApp}/>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App cableApp={CableApp}/>
+    </BrowserRouter>
+  </Provider>
   // </React.StrictMode>
 );
 

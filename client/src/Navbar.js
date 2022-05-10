@@ -7,9 +7,9 @@ function NavBar() {
   function handleLogoutClick(){
     fetch("/logout", { method: "DELETE"}).then((r) => {
         if (r.ok) {
-            // console.log(r)
+            console.log(r)
             // need to add in global state here to the logout
-            setCurrentUser(null);
+            // setCurrentUser(null);
             // routes you back to home
         }
     });

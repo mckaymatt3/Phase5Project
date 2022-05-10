@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 // import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setValue } from "./redux/user";
+import { setRoomValue } from "./redux/room";
 import Home from "./Home.js"
 import MusicLogin from "./musiccomponents/MusicLogin.js";
 import Login from "./user/Login";
 import Chat from "./chatcomponents/Chat.js";
+import Signup from "./user/Signup"
 
 function App({cableApp}) {
   const [count, setCount] = useState(0);
@@ -21,6 +25,9 @@ function App({cableApp}) {
   const [tokenType, setTokenType] = useState("");  
   const [expiresIn, setExpiresIn] = useState(""); 
 
+  // dispatch
+
+  
   // let navigate = useNavigate();
 
   useEffect(() => {
@@ -114,7 +121,7 @@ function App({cableApp}) {
             <MusicLogin user={user} setUser={setUser} accessToken={accessToken} setAccessToken={setAccessToken} expiresIn={expiresIn} setExpiresIn={setExpiresIn} tokenType={tokenType} setTokenType={setTokenType}/>
           </Route>
           <Route path="/signup">
-            <SignUp />
+            <Signup />
           </Route>
         </Switch>
       </div>
