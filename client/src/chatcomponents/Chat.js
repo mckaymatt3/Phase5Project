@@ -138,7 +138,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
             </label>
             <input className="submit-button" type="submit" />
         </form>
-      <ChatWebSocket cableApp={cableApp} />
+      <ChatWebSocket cableApp={cableApp} currentRoomGlobal={currentRoomGlobal} currentRoomGlobalId={currentRoomGlobal.room.id} />
     </div>
 
   )

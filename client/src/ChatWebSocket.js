@@ -5,41 +5,43 @@ import { setValue } from "./redux/user";
 import { useLocation } from "react-router-dom";
 
 
-function ChatWebSocket({ cableApp }) {
+function ChatWebSocket({ cableApp, currentRoomGlobal, currentRoomGlobalId }) {
 
   const dispatch = useDispatch();
-  const currentRoomGlobal = useSelector((state => state.room.value))
-  console.log("current room global :", currentRoomGlobal)
-  const currentUser = useSelector((state) => state.user.value);
+  console.log("global", currentRoomGlobal)
+  console.log("id", currentRoomGlobalId)
+//   const currentRoomGlobal = useSelector((state => state.room.value))
+//   const currentRoomGlobalId = currentRoomGlobal.room.id
+//   console.log("current room global id :", currentRoomGlobalId)
+//   const currentUser = useSelector((state) => state.user.value);
   // console.log("currentUser", currentUser)
 
   const location = useLocation();
 
-//   const getRoomData = (id) => {
-//     fetch(`http://localhost:3000/rooms/${id}`)
-//       .then((response) => response.json())
-//       .then((result) => {
-//         console.log("rooms data", result)
-//         dispatch(setRoomValue(result.data));
-//       });
+  function updateRoom (currentRoomGlobalId) {
+    // console.log(" this room clicked " , room)
+        // console.log("Kit was clicked", kit)
+    fetch(`/rooms/${currentRoomGlobalId}`)
+    .then(resp => resp.json())
+    .then(roomData => {
+        // console.log("room data messages fetched:", roomData.data.attributes.messages);
+        // console.log("room data fetched:", roomData.data.attributes)
+        // setCurrentRoomMessages(roomData.data.attributes.messages);
+        // showRoom(roomData.data);
+        dispatch( 
+          setRoomValue({
+            room: roomData.data,
+            users: roomData.data.attributes.users,
+            messages: roomData.data.attributes.messages 
+       }));
+    })
+  }
+
+//   const updateApp = (newRoom) => {
+//     dispatch(setRoomValue(newRoom.room.data));
 //   };
 
-//   const getRoomData =  useEffect((currentRoom) => {
-// //   console.log(currentRoom[0].id)
-//         const id = currentRoom[0].id
-//         fetch(`/rooms/${id}`)
-//         .then((response) => response.json())
-//         .then((result) => {
-//             console.log("rooms data", result)
-//             dispatch(setRoomValue(result.data));
-//         })
-//     }, []);
-
-  const updateApp = (newRoom) => {
-    dispatch(setRoomValue(newRoom.room.data));
-  };
-
-  console.log("cableApp :", cableApp)
+//   console.log("cableApp :", cableApp)
 
   useEffect(() => {
     // console.log(location);
@@ -47,12 +49,12 @@ function ChatWebSocket({ cableApp }) {
     cableApp.room = cableApp.cable.subscriptions.create(
       {
         channel: "RoomsChannel",
-        room: currentRoomGlobal.room.id
+        room: currentRoomGlobalId
       },
       {
         received: (updatedRoom) => {
           console.log("updatedRoom", updatedRoom);
-          updateApp(updatedRoom);
+          updateRoom(currentRoomGlobalId);
         },
       }
     );
