@@ -53,6 +53,9 @@ function NavBar({setUser, user}) {
             <div className="navbar-link-spacing">
                 <a href="http://localhost:4000/" onClick={handleLogoutClick}>Log Out</a>
             </div>
+            <div className="navbar-link-spacing">
+                <a target="_blank" href="https://www.youtube.com/watch?v=8UIEb3phWPM">Shrek Bomb</a>
+            </div>
             {/* <div className="navbar-link-spacing">
                 <NavLink to="/count">Count</NavLink>
             </div> */}

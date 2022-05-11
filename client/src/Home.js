@@ -11,7 +11,10 @@ function Home({
 
     const [title, setTitle] = useState("Welcome to Aux chat");
     
-
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+      }, [])
+    
     return ( 
         <div className="homepage">
             <div className="header"> 

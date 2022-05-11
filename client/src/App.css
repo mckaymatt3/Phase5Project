@@ -565,7 +565,23 @@ body{
   grid-column-end: 7;
   background-color: #FFFAF1;
   border-style: outset;
-  border-color: var(--bg2)
+  border-color: var(--bg2); 
+}
+
+.message-container{
+  height: 56vh;
+  /* width: 88vw; */
+  overflow-x: hidden;
+  overflow-y: scroll; 
+  /* background-image: url(https://media.istockphoto.com/photos/stone-black-texture-background-dark-cement-wall-picture-id1318101781?k=20&m=1318101781&s=170667a&w=0&h=9ZHT-5locCZnQUnJlNDnMygpRjvNWODHHTNbf1UdeN8=); */
+  /* background-color: black; */
+  opacity: .85;
+  color: var(--bg5)
+  /* z-index: 1; */
+}
+
+.user-message-div{
+  padding: .8vh;
 }
 
 .intro-message{
@@ -578,6 +594,7 @@ body{
 
 .add-chat-form{
   text-align: center;
+  padding-bottom: 2vh;
 }
 
 
@@ -649,6 +666,7 @@ body{
   grid-column-end: 7; */
   /* background-color: #afe4de; */
   background-color: var(--bg5);
+  height: 15vh;
   overflow-y: scroll; 
   border-style: outset;
   border-color: var(--bg4)
@@ -662,6 +680,26 @@ body{
 
 .room-name-header{
   color: black;
+}
+
+.each-message{
+  background-color: var(--bg4);
+  width: 25vw;
+  border-radius: 5%;
+  padding-top: .5vh;
+  padding-bottom: .5vh;
+  margin-right: auto;
+  opacity: .95;
+}
+
+.other-message{
+  background-color: var(--bg2);
+  width: 25vw;
+  border-radius: 5%;
+  padding-top: .5vh;
+  padding-bottom: .5vh;
+  margin-left: auto;
+  opacity: .95;
 }
 
 

@@ -56,7 +56,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
         })
           .then((response) => response.json())
           .then((result) => {
-            alert("done done");
+            //  alert("done done");
             // update messages on screen - with state
 
             // start();
@@ -101,8 +101,8 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
     // }
     // // map messages
     const myMessages = currentRoomGlobal.messages.map(function(message) {
-        // console.log("my messages: ", message)
-        return <ChatMessages key={message.id} message={message.body} />
+        // console.log("my messages user: ", message)
+        return <ChatMessages key={message.id} message={message.body} messageId={message.user_id} />
     })
 
     // // // make ternary for first display
@@ -121,7 +121,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
   // console.log(currentRoom[0].attributes.name)
 
   return (
-    <div className="chat-area">
+    <div>
         <div className="chat-header">
           <h2 className="chat-header-name">
             {title}
