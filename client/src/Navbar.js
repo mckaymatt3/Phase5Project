@@ -51,7 +51,7 @@ function NavBar({setUser, user}) {
                 <NavLink to="/musiclogin">Spotify Login</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <a href="http://localhost:4000/" onClick={handleLogoutClick}>Log Out</a>
+                <a href="http://www.espn.com" onClick={handleLogoutClick}>Log Out</a>
             </div>
             <div className="navbar-link-spacing">
                 <a target="_blank" href="https://www.youtube.com/watch?v=8UIEb3phWPM">Shrek Bomb</a>

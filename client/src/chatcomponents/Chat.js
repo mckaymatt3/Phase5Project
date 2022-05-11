@@ -14,7 +14,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
     const currentRoomGlobal = useSelector((state => state.room.value))
     // console.log("current room global :", currentRoomGlobal)
     const currentUser = useSelector((state) => state.user.value);
-    // console.log("currentUser", currentUser)
+    console.log("currentUser", currentUser)
     // console.log("current room global :", currentRoomGlobal)
     // console.log("current room global messages: ", currentRoomGlobal.attributes.messages)
 

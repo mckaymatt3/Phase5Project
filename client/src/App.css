@@ -369,7 +369,7 @@
   display: grid;
   grid-template-rows: 4vh 4vh;
   justify-content: center;
-  margin-left: 46.5%;
+  margin-left: 46%;
   /* margin-left: 50%; */
   /* margin-right: 50%; */
 }
@@ -588,8 +588,13 @@ body{
   text-align: center;
 }
 
+.chat-header{
+  /* left: 20% */
+}
+
 .chat-header-name{
-  text-align: center;
+  /* text-align: center; */
+  margin-left: 38%
 }
 
 .add-chat-form{
@@ -712,6 +717,7 @@ body{
   border-right:2px solid black;
   border-bottom:2px solid black;
   background-color: lightgray;
+  height: 10vh;
   overflow-y: scroll; 
   /* overflow-x: scroll; */
 }
@@ -723,8 +729,8 @@ body{
 }
 
 .search-result-pic {
-  height: 64px;
-  width: 64px;
+  height: 48px;
+  width: 48px;
 }
 
 .search-result-title {
@@ -736,8 +742,8 @@ body{
 }
 
 .container{
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+  padding-top: .5vh;
+  padding-bottom: 1vh;
 }
 
 

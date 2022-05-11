@@ -29,8 +29,9 @@ function SignUp({}) {
         .catch((error) => {
             console.error("Error:", error)
         })
-        setUsername(" ")
-        setPassword(" ")
+        setUsername("");
+        setPassword("");
+        alert("Signed up!")
     }
 
     return(
