@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
 // import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { setRoomValue } from "./redux/room";
+import { setValue } from "./redux/user";
 
-function NavBar() {
+function NavBar({setUser, user}) {
+
+  const dispatch = useDispatch();
 
   function handleLogoutClick(){
+    // console.log("clicked")
     fetch("/logout", { method: "DELETE"}).then((r) => {
         if (r.ok) {
-            console.log(r)
-            // need to add in global state here to the logout
-            // setCurrentUser(null);
+    //         console.log(r)
+    //         // need to add in global state here to the logout
+              dispatch(setValue(null));
+              setUser(null);
+    //         // setCurrentUser(null);
             // routes you back to home
         }
     });
 }
+
+  console.log("user currently:", user)
+  const currentUser = useSelector((state) => state.user.value);
+  console.log("current user currently", currentUser)
 
 
 
@@ -39,7 +51,7 @@ function NavBar() {
                 <NavLink to="/musiclogin">Spotify Login</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <a href="">Log Out</a>
+                <a href="http://localhost:4000/" onClick={handleLogoutClick}>Log Out</a>
             </div>
             {/* <div className="navbar-link-spacing">
                 <NavLink to="/count">Count</NavLink>

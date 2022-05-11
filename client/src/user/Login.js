@@ -34,13 +34,13 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
             console.log("Data here:", jsonData);
             // setUser(jsonData)
             setIsLoading(false)  
-            username("")
-            password("")
-            alert("Logged in!")
         })
         .catch((error) => {
             console.error("Error:", error)
         })
+        setUsername("")
+        setPassword("")
+        alert("Logged in!")
     }
 
     useEffect(() => {
@@ -57,7 +57,7 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
 
       function isUserLoggedIn () {
           if (user)
-            return <a className="logged-in-welcome" href='http://localhost:4000/'> Logged In! Continue to Home</a>
+            return <a className="logged-in-welcome" href='http://localhost:4000/'> Home. </a>
         else {
             return <a className="signup-welcome" href='http://localhost:4000/signup'>New to Aux? Sign up by clicking here.</a>
         }
@@ -78,7 +78,8 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
                 </form>
             </div>
             <div className="redirect-to-spotify">
-                    {isUserLoggedIn()}
+                <a className="logged-in-welcome" href='http://localhost:4000/'> 🏠 Home 🏠 </a> 
+                <a className="signup-welcome" href='http://localhost:4000/signup'> Sign up? </a>
             </div>
         </div>
      );

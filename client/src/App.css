@@ -349,7 +349,7 @@
 .overall-login-div{
   margin-top: 10vh;
   margin-bottom: 10vh;
-  place-items: center;
+  /* place-items: center; */
   /* justify-content: center; */
 }
 
@@ -365,9 +365,35 @@
   text-align: center;
   background: transparent;
   position: absolute;
-  bottom: 10vh;
-  align-content: center;
-  margin-left: 45%;
+  bottom: 12vh;
+  display: grid;
+  grid-template-rows: 4vh 4vh;
+  justify-content: center;
+  margin-left: 46.5%;
+  /* margin-left: 50%; */
+  /* margin-right: 50%; */
+}
+
+.redirect-to-spotify-two{
+  text-align: center;
+  background: transparent;
+  position: absolute;
+  bottom: 12vh;
+  display: grid;
+  grid-template-rows: 4vh 4vh;
+  justify-content: center;
+  margin-left: 41%;
+  /* margin-left: 50%; */
+  /* margin-right: 50%; */
+}
+
+.redirect-to-spotify-two > a {
+  text-decoration: none;
+  color: var(--bg5);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
 }
 
 .redirect-to-spotify > a {
@@ -375,6 +401,8 @@
   color: var(--bg5);
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
+  margin: auto;
 }
 
 .login_container{
@@ -419,11 +447,13 @@ body{
   position  : absolute;
   transform : translate(-50%, -50%);
   border-style: outset;
+  /* grid-template-rows: 2vh 5vh 2vh; */
+  /* grid-template-columns: 2vw 5vw 2vw; */
 }
 
 .login-form{
   display: grid;
-  grid-template-rows: 5vh 3vh 5vh 3vh;
+  grid-template-rows: 5vh 5vh 8vh 5vh;
   width: 40vh;
   height:40vh;
   margin: auto;
@@ -444,6 +474,10 @@ body{
   color: var(--bg5);
   font-size: 20px;
   font-weight: bold;
+}
+
+.input-bar{
+  
 }
 
 .password-label{

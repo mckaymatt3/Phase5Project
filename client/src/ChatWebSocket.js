@@ -8,8 +8,10 @@ import { useLocation } from "react-router-dom";
 function ChatWebSocket({ cableApp }) {
 
   const dispatch = useDispatch();
-
+  const currentRoomGlobal = useSelector((state => state.room.value))
+  console.log("current room global :", currentRoomGlobal)
   const currentUser = useSelector((state) => state.user.value);
+  // console.log("currentUser", currentUser)
 
   const location = useLocation();
 
@@ -22,28 +24,30 @@ function ChatWebSocket({ cableApp }) {
 //       });
 //   };
 
-  const getRoomData =  useEffect((currentRoom) => {
-//   console.log(currentRoom[0].id)
-        const id = currentRoom[0].id
-        fetch(`/rooms/${id}`)
-        .then((response) => response.json())
-        .then((result) => {
-            console.log("rooms data", result)
-            dispatch(setRoomValue(result.data));
-        })
-    }, []);
+//   const getRoomData =  useEffect((currentRoom) => {
+// //   console.log(currentRoom[0].id)
+//         const id = currentRoom[0].id
+//         fetch(`/rooms/${id}`)
+//         .then((response) => response.json())
+//         .then((result) => {
+//             console.log("rooms data", result)
+//             dispatch(setRoomValue(result.data));
+//         })
+//     }, []);
 
   const updateApp = (newRoom) => {
     dispatch(setRoomValue(newRoom.room.data));
   };
 
+  console.log("cableApp :", cableApp)
+
   useEffect(() => {
-    console.log(location);
-    getRoomData(window.location.href.match(/\d+$/)[0]);
+    // console.log(location);
+    // getRoomData(window.location.href.match(/\d+$/)[0]);
     cableApp.room = cableApp.cable.subscriptions.create(
       {
         channel: "RoomsChannel",
-        room: window.location.href.match(/\d+$/)[0]
+        room: currentRoomGlobal.room.id
       },
       {
         received: (updatedRoom) => {
@@ -53,7 +57,7 @@ function ChatWebSocket({ cableApp }) {
       }
     );
     //cableApp.room.perform("appear");
-  }, [location]);
+  }, []);
 
   return <div></div>;
 }

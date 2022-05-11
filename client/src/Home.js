@@ -25,7 +25,7 @@ function Home({
                     <img src={HouseLogo} alt="logo" className="logo"></img>
                 </div>
 
-                <NavBar />
+                <NavBar user={user} setUser={setUser}/>
 
                 <div className="rooms-area">
                 <h5 className="room-header">ChatRooms:</h5>
