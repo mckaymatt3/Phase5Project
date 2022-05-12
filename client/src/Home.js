@@ -9,8 +9,12 @@ function Home({
     user, setUser, allRooms, setAllRooms, currentRoom, setCurrentRoom,  
     currentRoomMessages, setCurrentRoomMessages, showRoom, cableApp}) {
 
+    const [title, setTitle] = useState("Welcome to Aux chat");
     
-
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+      }, [])
+    
     return ( 
         <div className="homepage">
             <div className="header"> 
@@ -24,7 +28,7 @@ function Home({
                     <img src={HouseLogo} alt="logo" className="logo"></img>
                 </div>
 
-                <NavBar />
+                <NavBar user={user} setUser={setUser}/>
 
                 <div className="rooms-area">
                 <h5 className="room-header">ChatRooms:</h5>
@@ -34,6 +38,8 @@ function Home({
                     setCurrentRoom={setCurrentRoom}
                     setCurrentRoomMessages={setCurrentRoomMessages}
                     showRoom={showRoom}
+                    title={title}
+                    setTitle={setTitle}
                 />
                 </div>
             </div>
@@ -50,6 +56,8 @@ function Home({
                     setCurrentRoomMessages={setCurrentRoomMessages}
                     showRoom={showRoom}
                     cableApp={cableApp}
+                    title={title}
+                    setTitle={setTitle}
                 />
             </div>
             {/* <div className="rooms-area">

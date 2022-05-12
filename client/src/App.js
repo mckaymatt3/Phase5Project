@@ -26,7 +26,7 @@ function App({cableApp}) {
   const [expiresIn, setExpiresIn] = useState(""); 
 
   // dispatch
-
+  const dispatch = useDispatch();
   
   // let navigate = useNavigate();
 
@@ -49,6 +49,18 @@ function App({cableApp}) {
       })
   }, []);
 
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+            setUser(user);
+            dispatch(setValue(user))
+        });
+      }
+    });
+  }, []);
+
   function showRoom (showThisRoom) {
     // create const to check find and not include twice
     // console.log("show this room", showThisRoom)
@@ -68,14 +80,14 @@ function App({cableApp}) {
   // console.log("Access Token App:", accessToken)
   // console.log("Token Type App:", tokenType)
   // console.log("Expires in App:", expiresIn)
-  console.log("user:", user)
+  // console.log("user:", user)
   // console.log("local storage access:", localStorage)
 
-  if(!user) {
-    // console.log("not logged in")
-    // console.log("login:", login)
-    return <Login setIsLoading={setIsLoading} user={user} setUser={setUser} password={password} setPassword={setPassword} username={username} setUsername={setUsername} login={login} setLogin={setLogin} />
-  }
+    // if(!user) {
+    //   // console.log("not logged in")
+    //   // console.log("login:", login)
+    //   return <Login setIsLoading={setIsLoading} user={user} setUser={setUser} password={password} setPassword={setPassword} username={username} setUsername={setUsername} login={login} setLogin={setLogin} />
+    // }
 
   // const openChat = (room) => {
   //   navigate(`/rooms/${room.id}`);

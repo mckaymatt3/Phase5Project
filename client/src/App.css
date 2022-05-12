@@ -349,7 +349,7 @@
 .overall-login-div{
   margin-top: 10vh;
   margin-bottom: 10vh;
-  place-items: center;
+  /* place-items: center; */
   /* justify-content: center; */
 }
 
@@ -365,9 +365,35 @@
   text-align: center;
   background: transparent;
   position: absolute;
-  bottom: 10vh;
-  align-content: center;
-  margin-left: 45%;
+  bottom: 12vh;
+  display: grid;
+  grid-template-rows: 4vh 4vh;
+  justify-content: center;
+  margin-left: 46%;
+  /* margin-left: 50%; */
+  /* margin-right: 50%; */
+}
+
+.redirect-to-spotify-two{
+  text-align: center;
+  background: transparent;
+  position: absolute;
+  bottom: 12vh;
+  display: grid;
+  grid-template-rows: 4vh 4vh;
+  justify-content: center;
+  margin-left: 41%;
+  /* margin-left: 50%; */
+  /* margin-right: 50%; */
+}
+
+.redirect-to-spotify-two > a {
+  text-decoration: none;
+  color: var(--bg5);
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
 }
 
 .redirect-to-spotify > a {
@@ -375,6 +401,8 @@
   color: var(--bg5);
   font-size: 20px;
   font-weight: bold;
+  text-align: center;
+  margin: auto;
 }
 
 .login_container{
@@ -419,11 +447,13 @@ body{
   position  : absolute;
   transform : translate(-50%, -50%);
   border-style: outset;
+  /* grid-template-rows: 2vh 5vh 2vh; */
+  /* grid-template-columns: 2vw 5vw 2vw; */
 }
 
 .login-form{
   display: grid;
-  grid-template-rows: 5vh 3vh 5vh 3vh;
+  grid-template-rows: 5vh 5vh 8vh 5vh;
   width: 40vh;
   height:40vh;
   margin: auto;
@@ -444,6 +474,10 @@ body{
   color: var(--bg5);
   font-size: 20px;
   font-weight: bold;
+}
+
+.input-bar{
+  
 }
 
 .password-label{
@@ -531,19 +565,41 @@ body{
   grid-column-end: 7;
   background-color: #FFFAF1;
   border-style: outset;
-  border-color: var(--bg2)
+  border-color: var(--bg2); 
+}
+
+.message-container{
+  height: 56vh;
+  /* width: 88vw; */
+  overflow-x: hidden;
+  overflow-y: scroll; 
+  /* background-image: url(https://media.istockphoto.com/photos/stone-black-texture-background-dark-cement-wall-picture-id1318101781?k=20&m=1318101781&s=170667a&w=0&h=9ZHT-5locCZnQUnJlNDnMygpRjvNWODHHTNbf1UdeN8=); */
+  /* background-color: black; */
+  opacity: .85;
+  color: var(--bg5)
+  /* z-index: 1; */
+}
+
+.user-message-div{
+  padding: .8vh;
 }
 
 .intro-message{
   text-align: center;
 }
 
+.chat-header{
+  /* left: 20% */
+}
+
 .chat-header-name{
-  text-align: center;
+  /* text-align: center; */
+  margin-left: 38%
 }
 
 .add-chat-form{
   text-align: center;
+  padding-bottom: 2vh;
 }
 
 
@@ -615,6 +671,7 @@ body{
   grid-column-end: 7; */
   /* background-color: #afe4de; */
   background-color: var(--bg5);
+  height: 15vh;
   overflow-y: scroll; 
   border-style: outset;
   border-color: var(--bg4)
@@ -630,6 +687,26 @@ body{
   color: black;
 }
 
+.each-message{
+  background-color: var(--bg4);
+  width: 25vw;
+  border-radius: 5%;
+  padding-top: .5vh;
+  padding-bottom: .5vh;
+  margin-right: auto;
+  opacity: .95;
+}
+
+.other-message{
+  background-color: var(--bg2);
+  width: 25vw;
+  border-radius: 5%;
+  padding-top: .5vh;
+  padding-bottom: .5vh;
+  margin-left: auto;
+  opacity: .95;
+}
+
 
 .music-search-div {
   /* position:absolute; */
@@ -640,6 +717,7 @@ body{
   border-right:2px solid black;
   border-bottom:2px solid black;
   background-color: lightgray;
+  height: 10vh;
   overflow-y: scroll; 
   /* overflow-x: scroll; */
 }
@@ -651,8 +729,8 @@ body{
 }
 
 .search-result-pic {
-  height: 64px;
-  width: 64px;
+  height: 48px;
+  width: 48px;
 }
 
 .search-result-title {
@@ -664,8 +742,8 @@ body{
 }
 
 .container{
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+  padding-top: .5vh;
+  padding-bottom: 1vh;
 }
 
 

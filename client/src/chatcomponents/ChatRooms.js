@@ -1,13 +1,13 @@
 import { React, useEffect, useState, useRef } from "react";
 import ChatRoomsCard from "./ChatRoomsCard";
 
-function ChatRooms({allRooms, setAllRooms, showRoom, setCurrentRoomMessages}) {
+function ChatRooms({allRooms, setAllRooms, showRoom, setCurrentRoomMessages, title, setTitle}) {
 
     const mapRooms = allRooms.map((room) => {
         return (
             // console.log("room:", room)
             // console.log("room:", room.attributes.name)
-            <ChatRoomsCard room={room} key={room.id} showRoom={showRoom} setCurrentRoomMessages={setCurrentRoomMessages} />
+            <ChatRoomsCard room={room} key={room.id} showRoom={showRoom} setCurrentRoomMessages={setCurrentRoomMessages} title={title} setTitle={setTitle} />
             // <a href="https://www.w3schools.com">{room.attributes.name}</a>
         )
     })
