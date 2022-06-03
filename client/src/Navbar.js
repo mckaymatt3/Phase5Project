@@ -23,9 +23,9 @@ function NavBar({setUser, user}) {
     });
 }
 
-  console.log("user currently:", user)
+  // console.log("user currently:", user)
   const currentUser = useSelector((state) => state.user.value);
-  console.log("current user currently", currentUser)
+  // console.log("current user currently", currentUser)
 
 
 
@@ -51,7 +51,7 @@ function NavBar({setUser, user}) {
                 <NavLink to="/musiclogin">Spotify Login</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <a href="http://www.espn.com" onClick={handleLogoutClick}>Log Out</a>
+                <a href="http://sendamessage.to/  " onClick={handleLogoutClick}>Log Out</a>
             </div>
             <div className="navbar-link-spacing">
                 <a target="_blank" href="https://www.youtube.com/watch?v=8UIEb3phWPM">Shrek Bomb</a>

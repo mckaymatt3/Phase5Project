@@ -7,7 +7,7 @@ function ChatRoomsCard({room, showRoom, setCurrentRoomMessages, title, setTitle}
   
   const dispatch = useDispatch();
   const currentRoomGlobal = useSelector((state => state.room.value))
-  console.log("current room global :", currentRoomGlobal)
+  // console.log("current room global :", currentRoomGlobal)
 
 
   function handleRoom () {
