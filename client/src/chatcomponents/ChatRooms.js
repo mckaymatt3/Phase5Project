@@ -7,7 +7,14 @@ function ChatRooms({allRooms, setAllRooms, showRoom, setCurrentRoomMessages, tit
         return (
             // console.log("room:", room)
             // console.log("room:", room.attributes.name)
-            <ChatRoomsCard room={room} key={room.id} showRoom={showRoom} setCurrentRoomMessages={setCurrentRoomMessages} title={title} setTitle={setTitle} />
+            <ChatRoomsCard 
+                room={room} 
+                key={room.id} 
+                showRoom={showRoom} 
+                setCurrentRoomMessages={setCurrentRoomMessages} 
+                title={title} 
+                setTitle={setTitle} 
+            />
             // <a href="https://www.w3schools.com">{room.attributes.name}</a>
         )
     })

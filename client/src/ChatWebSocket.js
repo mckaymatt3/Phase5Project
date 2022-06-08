@@ -9,7 +9,7 @@ function ChatWebSocket({ cableApp, currentRoomGlobal, currentRoomGlobalId }) {
 
   const dispatch = useDispatch();
   console.log("global", currentRoomGlobal)
-  console.log("id", currentRoomGlobalId)
+  // console.log("id", currentRoomGlobalId)
 //   const currentRoomGlobal = useSelector((state => state.room.value))
 //   const currentRoomGlobalId = currentRoomGlobal.room.id
 //   console.log("current room global id :", currentRoomGlobalId)
@@ -53,7 +53,7 @@ function ChatWebSocket({ cableApp, currentRoomGlobal, currentRoomGlobalId }) {
       },
       {
         received: (updatedRoom) => {
-          console.log("updatedRoom", updatedRoom);
+          // console.log("updatedRoom", updatedRoom);
           updateRoom(currentRoomGlobalId);
         },
       }
