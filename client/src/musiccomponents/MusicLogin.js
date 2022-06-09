@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { NavLink } from "react-router-dom";
 import "../App.css"
 
 const CLIENT_ID="aa7545d077a24e4b9ac7a11c57e35045"
@@ -86,7 +87,8 @@ function MusicLogin ({
               <button onClick={handleLogin}>Login to Spotify</button>
             </div>
             <div className="spotify-spacing">
-              <a href="http://localhost:4000/">Get back to the homepage</a>
+              {/* <a href="http://localhost:4000/">Get back to the homepage</a> */}
+              <NavLink className="logged-in-welcome" to="/">  Get back to 🏠 Home 🏠 </NavLink>
             </div>
         </div> );
 }
