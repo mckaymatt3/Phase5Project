@@ -575,6 +575,30 @@ body{
   border-color: var(--bg2); 
 }
 
+.welcome-1{
+  margin-top: 8vh;
+  margin-left: 15vw;
+  color: var(--bg2);
+}
+
+.welcome-2{
+  margin-top: 8vh;
+  margin-left: 30vw;
+  color: var(--bg4)
+}
+
+.welcome-3{
+  margin-top: 8vh;
+  margin-left: 45vw;
+  color: var(--bg2);
+}
+
+.welcome-4{
+  margin-top: 8vh;
+  margin-left: 60vw;
+  color: var(--bg4)
+}
+
 .message-container{
   height: 56vh;
   /* width: 88vw; */
@@ -724,7 +748,7 @@ body{
   border-right:2px solid black;
   border-bottom:2px solid black;
   background-color: lightgray;
-  max-height: 10vh;
+  max-height: 8.5vh;
   overflow-y: scroll; 
   /* overflow-x: scroll; */
 }

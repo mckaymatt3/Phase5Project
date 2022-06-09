@@ -15,6 +15,17 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
     const currentRoomGlobal = useSelector((state => state.room.value))
     // console.log("current room global :", currentRoomGlobal)
     const currentUser = useSelector((state) => state.user.value);
+    const roomCheck = currentRoomGlobal.room.attributes ? 
+      ""
+      : 
+      <div> 
+        <h1 className="welcome-1">Welcome</h1>
+        <h1 className="welcome-2">To</h1>
+        <h1 className="welcome-3">Aux</h1>
+        <h1 className="welcome-4">Chat</h1>
+      </div>
+      
+
     // console.log("currentUser", currentUser)
     // console.log("current room global :", currentRoomGlobal)
     // console.log("current room global messages: ", currentRoomGlobal.attributes.messages)
@@ -106,23 +117,9 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
         return <ChatMessages key={message.id} message={message.body} messageId={message.user_id} />
     })
 
-    // // // make ternary for first display
-    // // // console.log("currentRoom:", currentRoom.attributes.name)
-
-    // function checkThisChat () {
-    //     if (currentRoomGlobal.attributes.name)
-    //         // console.log(currentRoom)
-    //         return <h2 className="chat-header-name">{currentRoomGlobal.attributes.name}</h2>
-    //     else {
-    //       // console.log(currentRoom)
-    //         return <h3 className="intro-message"> Fire up that chat. </h3>
-    //     }
-    // }
-
-  // console.log(currentRoom[0].attributes.name)
-
   return (
     <div>
+      {roomCheck}
         {/* <div className="chat-header"> */}
           {/* <h2 className="chat-header-name">
             {title}
@@ -133,8 +130,6 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
          */}
         <div className="message-container">
             {myMessages}
-            {/* {checkTheseMessages()} */}
-            {/* {currentRoomMessages} */}
         </div>
         <form className="add-chat-form" onSubmit={handleSubmit}>
             <label className="chat-label"> Chat: 

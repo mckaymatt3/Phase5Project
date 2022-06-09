@@ -14,10 +14,10 @@ function Home({
     const [title, setTitle] = useState("Welcome");
     const dispatch = useDispatch();
     const currentRoomGlobal = useSelector((state => state.room.value))
-    const signInCheck = user.data ? `Welcome ${user.data.attributes.name}!` : "Please sign in"
+    const signInCheck = user.data ? `Welcome ${user.data.attributes.username}!` : "Please sign in"
     const roomCheck = currentRoomGlobal.room.attributes ? `Current Room: ${currentRoomGlobal.room.attributes.name}` : "Check out a room!"
     // const userName = user.attributes.name
-    // console.log("currentRoomGlobal", currentRoomGlobal.room.attributes.name)
+    // console.log("currentRoomGlobal", currentRoomGlobal.room.attributes.username)
     // console.log("currentRoomGlobal", currentRoomGlobal.room.attributes)
     // console.log("user", user.attributes)
     
