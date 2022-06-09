@@ -3,6 +3,7 @@ import { Redirect, Route } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { setRoomValue } from "../redux/room";
 import { setValue } from "../redux/user";
+import { NavLink } from "react-router-dom";
 import './Login.css'
 import '../App.css'
 
@@ -65,22 +66,27 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
       }    
     
     return ( 
-        <div className="overall-login-div">
-            <h1 className="welcome-local-login">Welcome to Aux.</h1>
-            <div className="login-div"> 
-                <form className="login-form" onSubmit={handleSubmit}>
-                    <label className="email-label"> Username: </label>
-                        <input className="input-bar" type="text" value={ username } name="username" onChange={(e) => setUsername(e.target.value)} />
-                    <label className="password-label"> Password: </label>
-                        <input className="input-bar" type="password" value={ password } name="password" onChange={(e) => setPassword(e.target.value)} />
-                    <div className="login-button-div">
-                        <input type="submit" value="Login" onClick={() => setLogin(true)} />
-                    </div>
-                </form>
-            </div>
+        <div>
             <div className="redirect-to-spotify">
-                <a className="logged-in-welcome" href='http://localhost:4000/'> 🏠 Home 🏠 </a> 
-                <a className="signup-welcome" href='http://localhost:4000/signup'> Sign up? </a>
+                {/* <a className="logged-in-welcome" href='http://localhost:4000/'> 🏠 Home 🏠 </a>  */}
+                <NavLink className="logged-in-welcome" to="/"> 🏠 Home 🏠 </NavLink>
+                <NavLink className="signup-welcome" to="/signup"> 👍 Sign up 👍 </NavLink>
+                {/* <a className="signup-welcome" href='http://localhost:4000/signup'> 👍 Sign up 👍 </a> */}
+            </div>
+            <div className="overall-login-div">
+                <h1 className="welcome-local-login">Welcome to Aux.</h1>
+                <div className="login-div"> 
+                    <form className="login-form" onSubmit={handleSubmit}>
+                        <label className="email-label"> Username: </label>
+                            <input className="input-bar" type="text" value={ username } name="username" onChange={(e) => setUsername(e.target.value)} />
+                        <label className="password-label"> Password: </label>
+                            <input className="input-bar" type="password" value={ password } name="password" onChange={(e) => setPassword(e.target.value)} />
+                        <div className="login-button-div">
+                            <input type="submit" value="Login" onClick={() => setLogin(true)} />
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
      );

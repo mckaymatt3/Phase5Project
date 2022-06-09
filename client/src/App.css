@@ -364,32 +364,23 @@
 .redirect-to-spotify{
   text-align: center;
   background: transparent;
-  position: absolute;
-  bottom: 12vh;
-  display: grid;
-  grid-template-rows: 4vh 4vh;
-  justify-content: center;
-  margin-left: 46%;
-  /* margin-left: 50%; */
-  /* margin-right: 50%; */
+  /* position: absolute; */
+  /* bottom: 12vh; */
+  display: flex;
+  /* grid-template-rows: 4vh 4vh; */
+  justify-content:space-around;
 }
 
 .redirect-to-spotify-two{
   text-align: center;
   background: transparent;
-  position: absolute;
-  bottom: 12vh;
-  display: grid;
-  grid-template-rows: 4vh 4vh;
+  display: flex;
   justify-content: center;
-  margin-left: 41%;
-  /* margin-left: 50%; */
-  /* margin-right: 50%; */
 }
 
 .redirect-to-spotify-two > a {
   text-decoration: none;
-  color: var(--bg5);
+  color: var(--bg4);
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -398,7 +389,7 @@
 
 .redirect-to-spotify > a {
   text-decoration: none;
-  color: var(--bg5);
+  color: var(--bg4);
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -496,6 +487,59 @@ body{
   grid-template-rows: 10vh 6vh 6vh 10vh 30vh 38vh;
 }
 
+.welcome-1{
+  margin-top: 8vh;
+  margin-left: 15vw;
+  color: var(--bg2);
+}
+
+.welcome-2{
+  margin-top: 8vh;
+  margin-left: 30vw;
+  color: var(--bg4)
+}
+
+.welcome-3{
+  margin-top: 8vh;
+  margin-left: 45vw;
+  color: var(--bg2);
+}
+
+.welcome-4{
+  margin-top: 8vh;
+  margin-left: 60vw;
+  color: var(--bg4)
+}
+
+@media (max-width: 900px) {
+  .homepage {
+    background-color: antiquewhite;
+    display: grid;
+    grid-template-columns: 25vw 20vw 20vw 20vw 15vw;
+    grid-template-rows: 12vh 6vh 6vh 10vh 30vh 36vh;
+  }
+  .welcome-1 {
+    margin-top: 8vh;
+    margin-left: 12vw;
+    color: var(--bg2);
+  }
+  .welcome-2 {
+    margin-top: 8vh;
+    margin-left: 24vw;
+    color: var(--bg4)
+  }
+  .welcome-3 {
+    margin-top: 8vh;
+    margin-left: 36vw;
+    color: var(--bg2);
+  }
+  .welcome-4 {
+    margin-top: 8vh;
+    margin-left: 48vw;
+    color: var(--bg4);
+  }
+}
+
 
 .header {
   grid-row-start: 1;
@@ -575,28 +619,8 @@ body{
   border-color: var(--bg2); 
 }
 
-.welcome-1{
-  margin-top: 8vh;
-  margin-left: 15vw;
-  color: var(--bg2);
-}
-
-.welcome-2{
-  margin-top: 8vh;
-  margin-left: 30vw;
-  color: var(--bg4)
-}
-
-.welcome-3{
-  margin-top: 8vh;
-  margin-left: 45vw;
-  color: var(--bg2);
-}
-
-.welcome-4{
-  margin-top: 8vh;
-  margin-left: 60vw;
-  color: var(--bg4)
+.chatroom-parent{
+  overflow: hidden;
 }
 
 .message-container{
@@ -661,6 +685,12 @@ body{
   display: flex;
   justify-content: center;
 }
+
+.navbar-header-name{
+  font-size: 2vw 1vh;
+}
+
+
 
 @keyframes glow {
   from {

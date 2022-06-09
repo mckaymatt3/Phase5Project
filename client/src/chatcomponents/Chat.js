@@ -118,7 +118,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
     })
 
   return (
-    <div>
+    <div className="chatroom-parent">
       {roomCheck}
         {/* <div className="chat-header"> */}
           {/* <h2 className="chat-header-name">

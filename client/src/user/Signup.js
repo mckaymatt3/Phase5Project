@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
 // import './Login.css'
-import '../App.css'
+import '../App.css';
 
 function SignUp({}) {
     
@@ -50,7 +51,8 @@ function SignUp({}) {
             </form>
             </div>
             <div className="redirect-to-spotify-two">
-                <a className="logged-in-welcome" href='http://localhost:4000/login'> Signed Up? Continue to Login.</a>  
+                {/* <a className="logged-in-welcome" href='http://localhost:4000/login'> Signed Up? Continue to Login.</a> */}
+                <NavLink className="logged-in-welcome" to="/login"> Signed Up? Continue to Login. </NavLink>  
             </div>    
         </div>
     )
