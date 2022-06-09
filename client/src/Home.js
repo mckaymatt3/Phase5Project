@@ -3,13 +3,23 @@ import NavBar from './Navbar';
 import Chat from './chatcomponents/Chat';
 import ChatRooms from './chatcomponents/ChatRooms';
 import HouseLogo from './HouseLogo.png'
+import { setRoomValue } from "./redux/room";
+import { useDispatch, useSelector } from "react-redux";
 import MusicSearch from './musiccomponents/MusicSearch';
 
 function Home({
     user, setUser, allRooms, setAllRooms, currentRoom, setCurrentRoom,  
     currentRoomMessages, setCurrentRoomMessages, showRoom, cableApp}) {
 
-    const [title, setTitle] = useState("Welcome to Aux chat");
+    const [title, setTitle] = useState("Welcome");
+    const dispatch = useDispatch();
+    const currentRoomGlobal = useSelector((state => state.room.value))
+    const signInCheck = user.data ? `Welcome ${user.data.attributes.username}!` : "Please sign in"
+    const roomCheck = currentRoomGlobal.room.attributes ? `Current Room: ${currentRoomGlobal.room.attributes.name}` : "Check out a room!"
+    // const userName = user.attributes.name
+    // console.log("currentRoomGlobal", currentRoomGlobal.room.attributes.username)
+    // console.log("currentRoomGlobal", currentRoomGlobal.room.attributes)
+    // console.log("user", user.attributes)
     
     useEffect(() => {
         document.body.style.overflow = "hidden";
@@ -18,10 +28,12 @@ function Home({
     return ( 
         <div className="homepage">
             <div className="header"> 
-                <div className="welcome-page-header-div">
+                <p className="sign-in-header">{signInCheck}</p>
+                {/* <div className="welcome-page-header-div"> */}
                     {/* <h2 className="welcome-page-header"> ♯ Local. But HiDef. ♯ </h2>  */}
-                    <h1 className="welcome-page-header"> PASS  THE  AUX. </h1> 
-                </div>
+                    <h1 className="welcome-page-header"> PASS  THE  AUX. </h1>
+                {/* </div> */}
+                <p className="sign-in-header">{roomCheck}</p>
             </div>
             <div className="nav-bar">
                 <div className="logo-container">

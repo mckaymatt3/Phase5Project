@@ -14,7 +14,7 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
 
     const dispatch = useDispatch();
     const currentUser = useSelector((state) => state.user.value);
-    // console.log("user", user)
+    console.log("user", user)
     
     function handleSubmit(e){
         e.preventDefault()

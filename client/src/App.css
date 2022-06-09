@@ -476,10 +476,6 @@ body{
   font-weight: bold;
 }
 
-.input-bar{
-  
-}
-
 .password-label{
   padding-top: 4vh;
   padding-bottom: 4vh; 
@@ -512,14 +508,17 @@ body{
   /* background-color: #ff9898; */
   /* background-color: rgb(228,228,249); */
   border-style: outset;
-  border-color: var(--bg2)
+  border-color: var(--bg2);
   /* border-color: #ff9898 */
+  display: flex;
+  justify-content: space-between;
 }
 
 .welcome-page-header {
   text-align: center;
   margin-top: 2.5vh;
   color: white;
+
   /* text-transform: uppercase;
    background-image: linear-gradient(
      -1deg,
@@ -540,6 +539,12 @@ body{
    display: center;
        font-size: 190px; */
  }
+
+ .sign-in-header{
+  color: var(--bg5);
+  text-align: center;
+  margin-top: 3.5vh;
+}
  
  @keyframes textclip {
    to {
@@ -555,7 +560,9 @@ body{
   grid-column-end: 7;
   background-color: #FFFAF1;
   border-style: outset;
-  border-color: var(--bg2)
+  border-color: var(--bg2);
+  /* display: flex; */
+  /* justify-content: center; */
 }
 
 .chat-area {
@@ -566,6 +573,30 @@ body{
   background-color: #FFFAF1;
   border-style: outset;
   border-color: var(--bg2); 
+}
+
+.welcome-1{
+  margin-top: 8vh;
+  margin-left: 15vw;
+  color: var(--bg2);
+}
+
+.welcome-2{
+  margin-top: 8vh;
+  margin-left: 30vw;
+  color: var(--bg4)
+}
+
+.welcome-3{
+  margin-top: 8vh;
+  margin-left: 45vw;
+  color: var(--bg2);
+}
+
+.welcome-4{
+  margin-top: 8vh;
+  margin-left: 60vw;
+  color: var(--bg4)
 }
 
 .message-container{
@@ -593,8 +624,8 @@ body{
 }
 
 .chat-header-name{
-  /* text-align: center; */
-  margin-left: 38%
+  text-align: center;
+  /* margin-left: 38% */
 }
 
 .add-chat-form{
@@ -712,12 +743,12 @@ body{
   /* position:absolute; */
   /* width: 120vh; */
   /* height: 25vh; */
-  z-index: 1;
+  z-index: 4000;
   opacity: .95;
   border-right:2px solid black;
   border-bottom:2px solid black;
   background-color: lightgray;
-  height: 10vh;
+  max-height: 8.5vh;
   overflow-y: scroll; 
   /* overflow-x: scroll; */
 }

@@ -8,6 +8,16 @@ import { setValue } from "./redux/user";
 function NavBar({setUser, user}) {
 
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.user.value);
+  const logOutCheck = currentUser.data ? 
+  <button onClick={handleLogoutClick}> 
+    {/* href="http://sendamessage.to/"  */}
+    Log Out
+  </button>
+  : 
+  ""
+  
+  console.log("current user", currentUser)
 
   function handleLogoutClick(){
     // console.log("clicked")
@@ -15,16 +25,16 @@ function NavBar({setUser, user}) {
         if (r.ok) {
     //         console.log(r)
     //         // need to add in global state here to the logout
-              dispatch(setValue(null));
-              setUser(null);
-    //         // setCurrentUser(null);
+              dispatch(setValue(""));
+              setUser("");
+            // setCurrentUser(null);
             // routes you back to home
         }
     });
 }
 
   // console.log("user currently:", user)
-  const currentUser = useSelector((state) => state.user.value);
+  
   // console.log("current user currently", currentUser)
 
 
@@ -51,10 +61,10 @@ function NavBar({setUser, user}) {
                 <NavLink to="/musiclogin">Spotify Login</NavLink>
             </div>
             <div className="navbar-link-spacing">
-                <a href="http://sendamessage.to/  " onClick={handleLogoutClick}>Log Out</a>
+                <a target="_blank" href="https://www.youtube.com/watch?v=8UIEb3phWPM">Shrek Bomb</a>
             </div>
             <div className="navbar-link-spacing">
-                <a target="_blank" href="https://www.youtube.com/watch?v=8UIEb3phWPM">Shrek Bomb</a>
+              {logOutCheck}
             </div>
             {/* <div className="navbar-link-spacing">
                 <NavLink to="/count">Count</NavLink>

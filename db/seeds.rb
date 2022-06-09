@@ -10,12 +10,16 @@ puts "Destroy Database"
 
 User.destroy_all
 Room.destroy_all
+Message.destroy_all
 
 puts "🏕 Seeding rooms..."
 room1 = Room.create(name: "Brooklyn Rap")
 room2 = Room.create(name: "NYC Indie")
-room3 = Room.create(name: "Rap")
-room4 = Room.create(name: "Indie")
+room3 = Room.create(name: "NYC Rock")
+room4 = Room.create(name: "Rap")
+room5 = Room.create(name: "Indie")
+room6 = Room.create(name: "Rock")
+room7 = Room.create(name: "EDM")
 
 
 puts "🏕 Seeding users..."

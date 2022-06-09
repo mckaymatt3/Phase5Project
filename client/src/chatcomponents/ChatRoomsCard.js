@@ -26,7 +26,8 @@ function ChatRoomsCard({room, showRoom, setCurrentRoomMessages, title, setTitle}
             users: roomData.data.attributes.users,
             messages: roomData.data.attributes.messages 
        }));
-      setTitle(roomData.data.attributes.name)
+      // setTitle(roomData.data.attributes.name)
+      setTitle("")
     })
   }
 

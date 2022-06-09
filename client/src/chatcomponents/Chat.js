@@ -7,6 +7,7 @@ import { setValue } from "../redux/user";
 import { setRoomValue } from "../redux/room";
 
 
+
 function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, setCurrentRoomMessages, cableApp, title, setTitle}) {
     const [newMessage, setNewMessage] = useState("");
 
@@ -14,7 +15,18 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
     const currentRoomGlobal = useSelector((state => state.room.value))
     // console.log("current room global :", currentRoomGlobal)
     const currentUser = useSelector((state) => state.user.value);
-    console.log("currentUser", currentUser)
+    const roomCheck = currentRoomGlobal.room.attributes ? 
+      ""
+      : 
+      <div> 
+        <h1 className="welcome-1">Welcome</h1>
+        <h1 className="welcome-2">To</h1>
+        <h1 className="welcome-3">Aux</h1>
+        <h1 className="welcome-4">Chat</h1>
+      </div>
+      
+
+    // console.log("currentUser", currentUser)
     // console.log("current room global :", currentRoomGlobal)
     // console.log("current room global messages: ", currentRoomGlobal.attributes.messages)
 
@@ -41,7 +53,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
           room_id: parseInt(currentRoomGlobal.room.id),
         //   sender_name: currentUser.username
         };
-        console.log("message", message);
+        // console.log("message", message);
         fetch('/messages', {
           method: "POST",
           headers: {
@@ -65,7 +77,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
     };
 
     function handleChange(event) {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setNewMessage(event.target.value);
     }
 
@@ -105,32 +117,19 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
         return <ChatMessages key={message.id} message={message.body} messageId={message.user_id} />
     })
 
-    // // // make ternary for first display
-    // // // console.log("currentRoom:", currentRoom.attributes.name)
-
-    // function checkThisChat () {
-    //     if (currentRoomGlobal.attributes.name)
-    //         // console.log(currentRoom)
-    //         return <h2 className="chat-header-name">{currentRoomGlobal.attributes.name}</h2>
-    //     else {
-    //       // console.log(currentRoom)
-    //         return <h3 className="intro-message"> Fire up that chat. </h3>
-    //     }
-    // }
-
-  // console.log(currentRoom[0].attributes.name)
-
   return (
     <div>
-        <div className="chat-header">
-          <h2 className="chat-header-name">
+      {roomCheck}
+        {/* <div className="chat-header"> */}
+          {/* <h2 className="chat-header-name">
             {title}
-          </h2>
-        </div>
+          </h2> */}
+          {/* </div> */}
+          {/* <div class="overlay"></div>
+            <video src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" muted="muted" loop="loop" playsinline="playsinline" autoplay="true" />
+         */}
         <div className="message-container">
             {myMessages}
-            {/* {checkTheseMessages()} */}
-            {/* {currentRoomMessages} */}
         </div>
         <form className="add-chat-form" onSubmit={handleSubmit}>
             <label className="chat-label"> Chat: 
