@@ -6,7 +6,7 @@ const CLIENT_ID="aa7545d077a24e4b9ac7a11c57e35045"
 const CLIENT_SECRET="05f735ece4ec4ecfb1a9310dd973adde"
 const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
 // const REDIRECT_URL_AFTER_LOGIN = "http://localhost:4000/musiclogin";
-const REDIRECT_URL_AFTER_LOGIN = "https://chatappmatt.herokuapp.com/musiclogin";
+const REDIRECT_URL_AFTER_LOGIN = "https://chatappmatt.herokuapp.com/";
 const SPACE_DELIMITER = "%20";
 
 const SCOPES=
