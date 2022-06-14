@@ -10,6 +10,10 @@ import { setRoomValue } from "../redux/room";
 
 function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, setCurrentRoomMessages, cableApp, title, setTitle}) {
     const [newMessage, setNewMessage] = useState("");
+    const [currentDiv, setCurrentDiv] = useState("create-chat-hidden");
+    const [currentButton, setCurrentButton] = useState("New Chat");
+    const [placeholderInput, setPlaceholderInput] = useState("Type in name here...");
+    const [newRoom, setNewRoom] = useState("")
 
     const dispatch = useDispatch();
     const currentRoomGlobal = useSelector((state => state.room.value))
@@ -24,26 +28,15 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
         <h1 className="welcome-3">Aux</h1>
         <h1 className="welcome-4">Chat</h1>
       </div>
-      
 
-    // console.log("currentUser", currentUser)
-    // console.log("current room global :", currentRoomGlobal)
-    // console.log("current room global messages: ", currentRoomGlobal.attributes.messages)
+      function showDiv () {
+        // console.log("currentDiv:", currentDiv)
+        if (currentDiv === "create-chat-hidden")
+          return setCurrentDiv("create-chat-show")
+        else
+          return setCurrentDiv("create-chat-hidden") 
+      }
 
-    // useEffect(() => {
-    // //   console.log(currentRoom[0].id)
-    //   const id = currentRoom[0].id
-    //   fetch(`/rooms/${id}`)
-    //     .then((response) => response.json())
-    //     .then((result) => {
-    //       console.log("rooms data", result)
-    //       dispatch(setRoomValue(result.data));
-    //     })
-    //   }, []);
-  
-    
-    
-  // console.log("current room id", currentRoom[0].id)
 
     const handleSubmit = (event) => {
       event.preventDefault();  
@@ -76,41 +69,42 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
           setNewMessage(" ")
     };
 
+    const handleRoomSubmit = (event) => {
+      event.preventDefault();  
+        console.log("clicked submit")
+        console.log("new Room", newRoom);
+        console.log("currentUser", currentUser)
+        fetch('/rooms', {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({           
+            name: newRoom,
+            user_id: currentUser.data.id
+          }),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log("result", result)
+          });
+          setNewRoom(" ")
+          window.location.reload()
+    };
+
     function handleChange(event) {
         // console.log(event.target.value)
         setNewMessage(event.target.value);
     }
 
-    //if we want to add in sound below and fire off sound in the handle submit above
-    // let recieveSound = new Audio("/whatsAppSound.mp3");
+    function handleChangeTwo(event) {
+      // console.log(event.target.value)
+      setNewRoom(event.target.value)
+    }
 
-    // const start = () => {
-    //   recieveSound.play();
-    // };
+    console.log("newRoom", newRoom)
 
-
-    // // console.log(currentRoomMessages)
-    // const myMessages = currentRoomGlobal.attributes.messages.map(function(message) {
-    //     return  <ChatMessages key={message.id} message={message.body} />
-    // })
-    
-    // function checkTheseMessages() {
-    //   if (myMessages) {
-    //      return myMessages
-    //   }
-    //   else {
-    //     <p>Hop in one of these chats...</p>
-    //   } 
-    // }
-
-
-    //   if (myMessages) {
-    //     return myMessages
-    //   }
-    //   else {
-    //     <p>Hop in one of these chats bruv...</p>
-    //   } 
-    // }
     // // map messages
     const myMessages = currentRoomGlobal.messages.map(function(message) {
         // console.log("my messages user: ", message)
@@ -120,14 +114,22 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
   return (
     <div className="chatroom-parent">
       {roomCheck}
-        {/* <div className="chat-header"> */}
-          {/* <h2 className="chat-header-name">
-            {title}
-          </h2> */}
-          {/* </div> */}
-          {/* <div class="overlay"></div>
-            <video src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" muted="muted" loop="loop" playsinline="playsinline" autoplay="true" />
-         */}
+        <div>
+          <button className="button-show-form" disabled={!user.data} onClick={() => showDiv()}>{currentButton}</button>
+           <div className={currentDiv}>
+            <div className="create-form-parent-div">
+              <label className="form-create-chat-label">Create A New Chat</label>
+            </div>
+            <div className="create-form-parent-div">
+              <input className="form-create-chat-input" onChange={handleChangeTwo} value={newRoom} placeholder={placeholderInput}></input>
+            </div>
+            <div className="create-form-parent-div">
+              <button variant="primary" type="submit" onClick={handleRoomSubmit}>
+                Submit
+              </button>
+            </div>
+           </div>
+        </div>
         <div className="message-container">
             {myMessages}
         </div>

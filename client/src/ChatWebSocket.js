@@ -59,7 +59,7 @@ function ChatWebSocket({ cableApp, currentRoomGlobal, currentRoomGlobalId }) {
       }
     );
     //cableApp.room.perform("appear");
-  }, []);
+  }, [currentRoomGlobal]);
 
   return <div></div>;
 }

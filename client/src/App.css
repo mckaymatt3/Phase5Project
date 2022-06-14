@@ -623,6 +623,41 @@ body{
   overflow: hidden;
 }
 
+.create-chat-hidden{
+  display: none;
+}
+
+.create-chat-show{
+  /* position: absolute; */
+  position:absolute;
+  top:30%;
+  left:35%;
+  width:40vw;  
+  height:35vh; 
+  border: #555;
+  border-style: dashed;
+  border-color: var(--bg5);
+  background-color: var(--bg2);
+  opacity: .88;
+  color: var(--bg5);  
+}
+
+.create-form-parent-div{
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+}
+
+.form-create-chat-label{
+  text-align: center;
+}
+
+.button-show-form{
+  position: absolute;
+  top: 93%;
+  left: 91%;
+}
+
 .message-container{
   height: 56vh;
   /* width: 88vw; */
