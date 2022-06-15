@@ -11,9 +11,10 @@ import { setRoomValue } from "../redux/room";
 function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, setCurrentRoomMessages, cableApp, title, setTitle}) {
     const [newMessage, setNewMessage] = useState("");
     const [currentDiv, setCurrentDiv] = useState("create-chat-hidden");
-    const [currentButton, setCurrentButton] = useState("New Chat");
+    const [currentButton, setCurrentButton] = useState("New");
     const [placeholderInput, setPlaceholderInput] = useState("Type in name here...");
     const [newRoom, setNewRoom] = useState("")
+    const [messageContainer, setMessageContainer] = useState("first-message-container")
 
     const dispatch = useDispatch();
     const currentRoomGlobal = useSelector((state => state.room.value))
@@ -22,7 +23,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
     const roomCheck = currentRoomGlobal.room.attributes ? 
       ""
       : 
-      <div> 
+      <div className="welcome-parent-div"> 
         <h1 className="welcome-1">Welcome</h1>
         <h1 className="welcome-2">To</h1>
         <h1 className="welcome-3">Aux</h1>
@@ -37,6 +38,13 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
           return setCurrentDiv("create-chat-hidden") 
       }
 
+      function checkScroll () {
+        if (currentRoomGlobal.room.attributes)
+          return setMessageContainer("message-container")
+        else 
+          return setMessageContainer("first-message-container")
+      }
+    
 
     const handleSubmit = (event) => {
       event.preventDefault();  
@@ -103,7 +111,7 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
       setNewRoom(event.target.value)
     }
 
-    console.log("newRoom", newRoom)
+    console.log(messageContainer)
 
     // // map messages
     const myMessages = currentRoomGlobal.messages.map(function(message) {
@@ -124,13 +132,13 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
               <input className="form-create-chat-input" onChange={handleChangeTwo} value={newRoom} placeholder={placeholderInput}></input>
             </div>
             <div className="create-form-parent-div">
-              <button variant="primary" type="submit" onClick={handleRoomSubmit}>
+              <button className="main-button-style" variant="primary" type="submit" onClick={handleRoomSubmit}>
                 Submit
               </button>
             </div>
            </div>
         </div>
-        <div className="message-container">
+        <div className={messageContainer}>
             {myMessages}
         </div>
         <form className="add-chat-form" onSubmit={handleSubmit}>

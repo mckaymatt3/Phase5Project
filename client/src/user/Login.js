@@ -43,6 +43,7 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
         setUsername("")
         setPassword("")
         alert("Logged in!")
+        window.location.reload()
     }
 
     useEffect(() => {
@@ -82,7 +83,7 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
                         <label className="password-label"> Password: </label>
                             <input className="input-bar" type="password" value={ password } name="password" onChange={(e) => setPassword(e.target.value)} />
                         <div className="login-button-div">
-                            <input type="submit" value="Login" onClick={() => setLogin(true)} />
+                            <input className="main-button-style" type="submit" value="Login" onClick={() => setLogin(true)} />
                         </div>
                     </form>
                 </div>

@@ -10,7 +10,7 @@ function NavBar({setUser, user}) {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.user.value);
   const logOutCheck = currentUser.data ? 
-  <button onClick={handleLogoutClick}> 
+  <button className="main-button-style" onClick={handleLogoutClick}> 
     {/* href="http://sendamessage.to/"  */}
     Log Out
   </button>
@@ -30,6 +30,7 @@ function NavBar({setUser, user}) {
             // setCurrentUser(null);
             // routes you back to home
         }
+        window.location.reload()
     });
 }
 

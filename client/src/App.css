@@ -354,7 +354,7 @@
 }
 
 .welcome-local-login{
-  color: var(--bg5);
+  color: var(--bg2);
   text-align: center;
   opacity: .95;
   /* background-color: coral; */
@@ -427,7 +427,8 @@ body{
   width: 55vh;
   height: 55vh;
   /* background-image: linear-gradient(to right, var(--bg1) 50%, var(--bg2) 50%);  */
-  background-image: url(https://cdn3.vectorstock.com/i/1000x1000/98/12/vinyl-record-background-vector-14589812.jpg);
+  /* background-image: url(https://cdn3.vectorstock.com/i/1000x1000/98/12/vinyl-record-background-vector-14589812.jpg); */
+  background-image: url(https://venture10.com/wp-content/uploads/2012/12/Opera-Background-Speaker1.jpg);
   /* background-position: left center; */
   border-radius: 50%;
   margin: auto;
@@ -438,6 +439,7 @@ body{
   position  : absolute;
   transform : translate(-50%, -50%);
   border-style: outset;
+  border-color: var(--bg2);
   /* grid-template-rows: 2vh 5vh 2vh; */
   /* grid-template-columns: 2vw 5vw 2vw; */
 }
@@ -487,6 +489,10 @@ body{
   grid-template-rows: 10vh 6vh 6vh 10vh 30vh 38vh;
 }
 
+.welcome-parent-div{
+  margin-bottom: 30vh;
+}
+
 .welcome-1{
   margin-top: 8vh;
   margin-left: 15vw;
@@ -511,34 +517,7 @@ body{
   color: var(--bg4)
 }
 
-@media (max-width: 900px) {
-  .homepage {
-    background-color: antiquewhite;
-    display: grid;
-    grid-template-columns: 25vw 20vw 20vw 20vw 15vw;
-    grid-template-rows: 12vh 6vh 6vh 10vh 30vh 36vh;
-  }
-  .welcome-1 {
-    margin-top: 8vh;
-    margin-left: 12vw;
-    color: var(--bg2);
-  }
-  .welcome-2 {
-    margin-top: 8vh;
-    margin-left: 24vw;
-    color: var(--bg4)
-  }
-  .welcome-3 {
-    margin-top: 8vh;
-    margin-left: 36vw;
-    color: var(--bg2);
-  }
-  .welcome-4 {
-    margin-top: 8vh;
-    margin-left: 48vw;
-    color: var(--bg4);
-  }
-}
+
 
 
 .header {
@@ -640,6 +619,7 @@ body{
   background-color: var(--bg2);
   opacity: .88;
   color: var(--bg5);  
+  z-index: 1000;
 }
 
 .create-form-parent-div{
@@ -654,11 +634,53 @@ body{
 
 .button-show-form{
   position: absolute;
-  top: 93%;
-  left: 91%;
+  top: 94%;
+  left: 94%;
+  border-radius: 10%;
+  background-color: var(--bg2);
+  color: var(--bg5);
+  border-color: var(--bg4);
+}
+
+.button-show-form:hover{
+  background-color: var(--bg4);
+}
+
+.main-button-style{
+  border-radius: 10%;
+  background-color: var(--bg2);
+  color: var(--bg5);
+  border-color: var(--bg4);
+}
+
+.main-button-style:hover{
+  background-color: var(--bg4);
+}
+
+.submit-button{
+  border-radius: 10%;
+  background-color: var(--bg2);
+  color: var(--bg5);
+  border-color: var(--bg4);
+}
+
+.submit-button:hover{
+  background-color: var(--bg4);
 }
 
 .message-container{
+  height: 56vh;
+  /* width: 88vw; */
+  overflow-x: hidden;
+  overflow-y: scroll; 
+  /* background-image: url(https://media.istockphoto.com/photos/stone-black-texture-background-dark-cement-wall-picture-id1318101781?k=20&m=1318101781&s=170667a&w=0&h=9ZHT-5locCZnQUnJlNDnMygpRjvNWODHHTNbf1UdeN8=); */
+  /* background-color: black; */
+  opacity: .85;
+  color: var(--bg5)
+  /* z-index: 1; */
+}
+
+.first-message-container{
   height: 56vh;
   /* width: 88vw; */
   overflow-x: hidden;
@@ -842,8 +864,39 @@ body{
   padding-bottom: 1vh;
 }
 
-
-
+@media (max-width: 900px) {
+  .homepage {
+    background-color: antiquewhite;
+    display: grid;
+    grid-template-columns: 25vw 20vw 20vw 20vw 15vw;
+    grid-template-rows: 12vh 6vh 6vh 10vh 30vh 36vh;
+  }
+  .welcome-1 {
+    margin-top: 8vh;
+    margin-left: 12vw;
+    color: var(--bg2);
+  }
+  .welcome-2 {
+    margin-top: 8vh;
+    margin-left: 24vw;
+    color: var(--bg4)
+  }
+  .welcome-3 {
+    margin-top: 8vh;
+    margin-left: 36vw;
+    color: var(--bg2);
+  }
+  .welcome-4 {
+    margin-top: 8vh;
+    margin-left: 48vw;
+    color: var(--bg4);
+  }
+  .button-show-form{
+    position: absolute;
+    top: 87;
+    left: 87%;
+  }
+}
 
 
 

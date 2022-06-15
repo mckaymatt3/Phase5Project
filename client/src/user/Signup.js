@@ -46,7 +46,7 @@ function SignUp({}) {
                     <input className="input-bar" type="password" value={ password } name="password" onChange={(e) => setPassword(e.target.value)} />
                 <br/>
                 <div className="login-button-div">
-                    <input type="submit" value="Signup" onClick={() => setSignup(true)} />
+                    <input className="main-button-style" type="submit" value="Signup" onClick={() => setSignup(true)} />
                 </div>
             </form>
             </div>
