@@ -414,8 +414,13 @@
 }
 
 .spotify-connect-header{
-  color: var(--bg5);
+  color: var(--bg3);
 }
+
+.logged-in-welcome:active{
+  color: var(--bg3);
+}
+
 
 body{
   background-color: transparent;

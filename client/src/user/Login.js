@@ -70,8 +70,22 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
         <div>
             <div className="redirect-to-spotify">
                 {/* <a className="logged-in-welcome" href='http://localhost:4000/'> 🏠 Home 🏠 </a>  */}
-                <NavLink className="logged-in-welcome" to="/"> 🏠 Home 🏠 </NavLink>
-                <NavLink className="signup-welcome" to="/signup"> 👍 Sign up 👍 </NavLink>
+                <NavLink 
+                    style={({ isActive }) => ({
+                        color: isActive ? 'rgb(88, 175, 156)' : 'rgb(88, 175, 156)',
+                        // background: isActive ? '#7600dc' : '#f0f0f0',
+                    })}
+                    className="logged-in-welcome" to="/"> 
+                    🏠 Home 🏠 
+                </NavLink>
+                <NavLink 
+                    style={({ isActive }) => ({
+                        color: isActive ? 'rgb(88, 175, 156)' : 'rgb(88, 175, 156)',
+                        // background: isActive ? '#7600dc' : '#f0f0f0',
+                    })}
+                    className="signup-welcome" to="/signup"> 
+                    👍 Sign up 👍 
+                </NavLink>
                 {/* <a className="signup-welcome" href='http://localhost:4000/signup'> 👍 Sign up 👍 </a> */}
             </div>
             <div className="overall-login-div">

@@ -85,11 +85,16 @@ function MusicLogin ({
         <div className="login_container">
             <h1 className="spotify-connect-header">Spotify Connect</h1>
             <div className="spotify-spacing">
-              <button onClick={handleLogin}>Login to Spotify</button>
+              <button className="main-button-style" onClick={handleLogin}>Login to Spotify</button>
             </div>
             <div className="spotify-spacing">
               {/* <a href="http://localhost:4000/">Get back to the homepage</a> */}
-              <NavLink className="logged-in-welcome" to="/">  Get back to 🏠 Home 🏠 </NavLink>
+              <NavLink 
+                style={({ isActive }) => ({
+                  color: isActive ? '#6D597a' : '#b56576',
+                  // background: isActive ? '#7600dc' : '#f0f0f0',
+                })}
+                className="logged-in-welcome" to="/">  Get back to 🏠 Home 🏠 </NavLink>
             </div>
         </div> );
 }

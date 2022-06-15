@@ -52,7 +52,14 @@ function SignUp({}) {
             </div>
             <div className="redirect-to-spotify-two">
                 {/* <a className="logged-in-welcome" href='http://localhost:4000/login'> Signed Up? Continue to Login.</a> */}
-                <NavLink className="logged-in-welcome" to="/login"> Signed Up? Continue to Login. </NavLink>  
+                <NavLink 
+                    style={({ isActive }) => ({
+                        color: isActive ? 'rgb(88, 175, 156)' : 'rgb(88, 175, 156)',
+                        // background: isActive ? '#7600dc' : '#f0f0f0',
+                    })}
+                    className="logged-in-welcome" to="/login"> 
+                    Signed Up? Continue to Login. 
+                </NavLink>  
             </div>    
         </div>
     )
