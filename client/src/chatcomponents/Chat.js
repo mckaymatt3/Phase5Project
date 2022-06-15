@@ -79,9 +79,9 @@ function Chat({currentRoom, setCurrentRoom, user, setUser, currentRoomMessages, 
 
     const handleRoomSubmit = (event) => {
       event.preventDefault();  
-        console.log("clicked submit")
-        console.log("new Room", newRoom);
-        console.log("currentUser", currentUser)
+        // console.log("clicked submit")
+        // console.log("new Room", newRoom);
+        // console.log("currentUser", currentUser)
         fetch('/rooms', {
           method: "POST",
           headers: {

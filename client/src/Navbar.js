@@ -17,7 +17,7 @@ function NavBar({setUser, user}) {
   : 
   ""
   
-  console.log("current user", currentUser)
+  // console.log("current user", currentUser)
 
   function handleLogoutClick(){
     // console.log("clicked")

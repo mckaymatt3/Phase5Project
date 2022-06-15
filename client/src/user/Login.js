@@ -43,7 +43,7 @@ function Login({username, setUsername, password, setPassword, login, setLogin, u
         setUsername("")
         setPassword("")
         alert("Logged in!")
-        window.location.reload()
+        // window.location.reload()
     }
 
     useEffect(() => {

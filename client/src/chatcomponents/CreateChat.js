@@ -14,8 +14,8 @@ function CreateChat({}) {
     
     function handleSubmit(event){
         // event.preventDefault()
-        console.log("clicked")
-        console.log("form data",formData)
+        // console.log("clicked")
+        // console.log("form data",formData)
         
         // if(formData.name === "") {
         //     setError('Error! Complete Field');
