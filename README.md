@@ -34,6 +34,8 @@ To deploy I chose to use Heroku to learn the ins and outs of this platform, as w
 
 Please note - currently updating performance bugs for ActionCable and SpotifyPlayer with Heroku; want to ensure all functionality works as implemented within the local environment, as displayed with the walkthrough video above. Part of the fun of coding - always learning, testing, and debugging! 
 
+https://chatappmatt.herokuapp.com/
+
 **Going Forward**
 I want to continue to add user-friendly features to build out a more robust app and user experience, including: 
 1. Song statistics - can like songs and capture overall play statistics 
