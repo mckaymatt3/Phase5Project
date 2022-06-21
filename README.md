@@ -13,6 +13,7 @@ For the frontend I implemented the following features:
 - ActionCable WebSocket to create live chat functionality 
 - Redux global state to optimize state functionality for user, chat, and message data       
 - UX/UI design thinking to create a user-friendly experience 
+- Create the site structure to update based on mobile vs desktop viewing experience
 
 _Initial Screen:_
 ![AuxFront](https://user-images.githubusercontent.com/97127168/174706633-a72b057c-65ae-405b-b65e-82a4d4e74a22.png)
